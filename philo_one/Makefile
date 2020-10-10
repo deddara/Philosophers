@@ -2,7 +2,7 @@ NAME = philo_one
 OBJ_DIR = obj/
 HDR_DIR = ./includes/
 
-COMPILE_FLGS = gcc -I$(HDR_DIR) -Wall -Wextra -Werror
+COMPILE_FLGS = gcc -I$(HDR_DIR) -Wall -Wextra
 
 .PHONY: all clean fclean re
 
@@ -14,11 +14,11 @@ MAIN_SRC = main
 MAIN_SRC.O = $(addprefix $(OBJ_DIR), $(MAIN_SRC:=.o))
 
 all: $(OBJ_DIR) $(NAME)
-	@echo "\033[32m[+] Make completed!\033[0m"
 
 
 $(NAME): $(SRC.O) $(MAIN_SRC.O)
 	@$(COMPILE_FLGS) $(SRC.O) $(MAIN_SRC.O) -o $(NAME)
+	@echo "\033[32m[+] Make completed!\033[0m"
 
 $(SRC.O): $(OBJ_DIR)%.o: %.c
 	$(COMPILE_FLGS) -O2 -c $< -o $@
