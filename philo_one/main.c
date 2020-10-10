@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <pthread.h>
 #include "philo.h"
-
+#include <stdio.h>
 //void  *philo(void *val)
 //{
 //	t_table *table = (t_table *)val;
@@ -13,6 +13,14 @@
 
 static int init(t_table *table, char **argv)
 {
+	table->phl_num = ft_atoi(argv[1]);
+	table->die_time = ft_atoi(argv[2]);
+	table->eat_time = ft_atoi(argv[3]);
+	table->sleep_time = ft_atoi(argv[4]);
+	if (!(argv[5]))
+		table->eat_num = -1;
+	else
+		table->eat_num = ft_atoi(argv[5]);
 	return (0);
 }
 
@@ -30,7 +38,7 @@ int check_validation(int argc, char **argv)
 	{
 		if (check_for_num(argv[i]))
 		{
-			ft_putstr_fd("not a number: ", 2);
+			ft_putstr_fd("wrong number: ", 2);
 			ft_putstr_fd(argv[i], 2);
 			ft_putstr_fd("\n", 2);
 			return (1);
