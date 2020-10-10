@@ -10,7 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949f2386-d3d1-433b-908d-419327310a65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/philo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.c" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +59,7 @@
       <workItem from="1602245136237" duration="1005000" />
       <workItem from="1602260899987" duration="1004000" />
       <workItem from="1602344191534" duration="11000" />
-      <workItem from="1602344720124" duration="1355000" />
+      <workItem from="1602344720124" duration="3027000" />
     </task>
     <servers />
   </component>
@@ -62,6 +67,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1046" y="530" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602346892610">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state x="1046" y="530" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2560.1331@0.23.2560.1331" timestamp="1602346892610" />
     <state x="807" y="322" key="run.anything.popup" timestamp="1602264491418">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
