@@ -31,23 +31,25 @@ static void take_forks(t_philo *philo)
 	{
 		pthread_mutex_lock(&philo->table->forks[left_fork]);
 		ft_putnbr_fd(take_time_in_ms(), 1);
+		ft_putstr_fd(" ", 1);
 		ft_putnbr_fd(philo->id, 1);
-		ft_putstr_fd("has taken a fork\n", 1);
+		ft_putstr_fd(" has taken a fork\n", 1);
 		pthread_mutex_lock(&philo->table->forks[right_fork]);
 		ft_putnbr_fd(take_time_in_ms(), 1);
 		ft_putnbr_fd(philo->id, 1);
-		ft_putstr_fd("has taken a fork\n", 1);
+		ft_putstr_fd(" has taken a fork\n", 1);
 	}
 	else
 	{
 		pthread_mutex_lock(&philo->table->forks[right_fork]);
 		ft_putnbr_fd(take_time_in_ms(), 1);
+		ft_putstr_fd(" ", 1);
 		ft_putnbr_fd(philo->id, 1);
-		ft_putstr_fd("has taken a fork\n", 1);
+		ft_putstr_fd(" has taken a fork\n", 1);
 		pthread_mutex_lock(&philo->table->forks[left_fork]);
 		ft_putnbr_fd(take_time_in_ms(), 1);
 		ft_putnbr_fd(philo->id, 1);
-		ft_putstr_fd("has taken a fork\n", 1);
+		ft_putstr_fd(" has taken a fork\n", 1);
 	}
 	ft_putnbr_fd(take_time_in_ms(), 1);
 	ft_putstr_fd(" ", 1);
@@ -70,7 +72,8 @@ static void *check_die(void *val)
 	time = take_time_in_ms();
 	while (time - philo->last_lunch_t < philo->table->die_time)
 	{
-		usleep(10000);
+		time = take_time_in_ms();
+		usleep(10);
 	}
 	ft_putnbr_fd(take_time_in_ms(), 1);
 	ft_putstr_fd(" ", 1);
@@ -158,6 +161,12 @@ static void start_threads(t_table *table)
 	while (i < table->phl_num)
 	{
 		pthread_join(thread[i], NULL);
+		i++;
+	}
+	i = 0;
+	while (i < table->phl_num)
+	{
+		pthread_mutex_destroy(&table->forks[i]);
 		i++;
 	}
 }
