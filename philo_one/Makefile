@@ -2,7 +2,7 @@ NAME = philo_one
 OBJ_DIR = obj/
 HDR_DIR = ./includes/
 
-COMPILE_FLGS = gcc -I$(HDR_DIR) -Wall -Wextra
+COMPILE_FLGS = gcc -I$(HDR_DIR) -Wall -Wextra -pthread
 
 .PHONY: all clean fclean re
 

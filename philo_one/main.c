@@ -11,22 +11,53 @@
 //	return NULL;
 //}
 
-static int init_mutex(t_table *table, char **argv)
+static void *simulation(void *val)
+{
+	t_philo *philo = (t_philo*)val;
+
+	printf("%d\n", philo->id);
+	return (NULL);
+}
+
+static void init_mutex(t_table *table)
 {
 	int i;
 	pthread_mutex_t	forks[table->phl_num];
-	i = 0;
 
-//	if (!(table->forks = (pthread_mutex_t *)\
-//	malloc(sizeof(pthread_mutex_t) * table->phl_num)))
-//			return (1);
+	i = 0;
 	while (i < table->phl_num)
 	{
 		pthread_mutex_init(&forks[i], NULL);
 		i++;
 	}
 	table->forks = forks;
-	return (0);
+}
+
+static void init_philo(int i, t_philo *philo, t_table *table)
+{
+	philo->id = i;
+	philo->table = table;
+}
+
+static void start_threads(t_table *table)
+{
+	int i;
+	t_philo philo[table->phl_num];
+	pthread_t thread[table->phl_num];
+
+	i = 0;
+	while (i < table->phl_num)
+	{
+		init_philo(i, &philo[i], table);
+		pthread_create(&thread[i], NULL, simulation, &philo[i]);
+		i++;
+	}
+	i = 0;
+	while (i < table->phl_num)
+	{
+		pthread_join(thread[i], NULL);
+		i++;
+	}
 }
 
 static int init(t_table *table, char **argv)
@@ -43,8 +74,9 @@ static int init(t_table *table, char **argv)
 		table->eat_num = -1;
 	else
 		table->eat_num = ft_atoi(argv[5]);
-	if (init_mutex(table, argv))
-		return (1);
+	table->start = 0;
+	init_mutex(table);
+	start_threads(table);
 	return (0);
 }
 
