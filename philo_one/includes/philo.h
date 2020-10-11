@@ -14,6 +14,7 @@ typedef struct	s_table
 				int 			eat_num;
 				int 			start;
 				int 			smb_died;
+				int 			sim_start;
 				pthread_mutex_t	*forks;
 }				t_table;
 
@@ -31,5 +32,8 @@ void	ft_putstr_fd(char *s, int fd);
 int		check_for_num(char *str);
 int				ft_atoi(const char *str);
 void			ft_putnbr_fd(int n, int fd);
+char			*ft_itoa(int n);
+char	*ft_strjoin_philo(char *time, char *id, char *action);
+
 
 #endif

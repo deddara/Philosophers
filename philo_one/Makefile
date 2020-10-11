@@ -7,7 +7,7 @@ COMPILE_FLGS = gcc -I$(HDR_DIR) -Wall -Wextra -pthread
 .PHONY: all clean fclean re
 
 SRC_DIR = src/
-SRC = $(addprefix $(SRC_DIR), utils atoi ft_putnbr)
+SRC = $(addprefix $(SRC_DIR), utils atoi ft_putnbr itoa)
 SRC.O = $(addprefix $(OBJ_DIR), $(SRC:=.o))
 
 MAIN_SRC = main

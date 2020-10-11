@@ -20,6 +20,19 @@ static int take_time_in_ms(void)
 	return (((start.tv_sec) * 1000) + ((start.tv_usec)/1000));
 }
 
+static void msg(t_philo *philo, char *action)
+{
+	char *time;
+	char *str;
+	int new_time;
+
+	new_time = take_time_in_ms() - philo->table->sim_start;
+	time = ft_itoa(new_time);
+	str = ft_strjoin_philo(time, ft_itoa(philo->id), action);
+	ft_putstr_fd(str, 1);
+	free(str);
+}
+
 static void take_forks(t_philo *philo)
 {
 	int left_fork;
@@ -30,31 +43,18 @@ static void take_forks(t_philo *philo)
 	if (!philo->id % 2)
 	{
 		pthread_mutex_lock(&philo->table->forks[left_fork]);
-		ft_putnbr_fd(take_time_in_ms(), 1);
-		ft_putstr_fd(" ", 1);
-		ft_putnbr_fd(philo->id, 1);
-		ft_putstr_fd(" has taken a fork\n", 1);
+		msg(philo, "has taken a fork\n");
 		pthread_mutex_lock(&philo->table->forks[right_fork]);
-		ft_putnbr_fd(take_time_in_ms(), 1);
-		ft_putnbr_fd(philo->id, 1);
-		ft_putstr_fd(" has taken a fork\n", 1);
+		msg(philo, "has taken a fork\n");
 	}
 	else
 	{
 		pthread_mutex_lock(&philo->table->forks[right_fork]);
-		ft_putnbr_fd(take_time_in_ms(), 1);
-		ft_putstr_fd(" ", 1);
-		ft_putnbr_fd(philo->id, 1);
-		ft_putstr_fd(" has taken a fork\n", 1);
+		msg(philo, "has taken a fork\n");
 		pthread_mutex_lock(&philo->table->forks[left_fork]);
-		ft_putnbr_fd(take_time_in_ms(), 1);
-		ft_putnbr_fd(philo->id, 1);
-		ft_putstr_fd(" has taken a fork\n", 1);
+		msg(philo, "has taken a fork\n");
 	}
-	ft_putnbr_fd(take_time_in_ms(), 1);
-	ft_putstr_fd(" ", 1);
-	ft_putnbr_fd(philo->id, 1);
-	ft_putstr_fd(" is eating\n", 1);
+	msg(philo, "is eating\n");
 	usleep(philo->table->eat_time * 1000);
 	philo->last_lunch_t = take_time_in_ms();
 	pthread_mutex_unlock(&philo->table->forks[left_fork]);
@@ -75,29 +75,20 @@ static void *check_die(void *val)
 		time = take_time_in_ms();
 		usleep(10);
 	}
-	ft_putnbr_fd(take_time_in_ms(), 1);
-	ft_putstr_fd(" ", 1);
-	ft_putnbr_fd(philo->id, 1);
-	ft_putstr_fd(" died\n", 1);
+	msg(philo, "is died\n");
 	philo->table->smb_died = 1;
 	return (NULL);
 }
 
 static void ft_sleep(t_philo *philo)
 {
-	ft_putnbr_fd(take_time_in_ms(), 1);
-	ft_putstr_fd(" ", 1);
-	ft_putnbr_fd(philo->id, 1);
-	ft_putstr_fd(" is sleeping\n", 1);
+	msg(philo, "is sleeping\n");
 	usleep(philo->table->sleep_time * 1000);
 }
 
 static void ft_think(t_philo *philo)
 {
-	ft_putnbr_fd(take_time_in_ms(), 1);
-	ft_putstr_fd(" ", 1);
-	ft_putnbr_fd(philo->id, 1);
-	ft_putstr_fd(" is thinking\n", 1);
+	msg(philo, "is thinking\n");
 }
 
 static void *simulation(void *val)
@@ -106,6 +97,7 @@ static void *simulation(void *val)
 	pthread_t	die_time_thrd;
 
 	philo = (t_philo*)val;
+	philo->table->sim_start = take_time_in_ms();
 	pthread_create(&die_time_thrd, NULL, check_die, philo);
 	philo->last_lunch_t = take_time_in_ms();
 	while (philo->table->eat_num)
@@ -123,20 +115,6 @@ static void *simulation(void *val)
 	return (NULL);
 }
 
-static void init_mutex(t_table *table)
-{
-	int i;
-	pthread_mutex_t	forks[table->phl_num];
-
-	i = 0;
-	while (i < table->phl_num)
-	{
-		pthread_mutex_init(&forks[i], NULL);
-		i++;
-	}
-	table->forks = forks;
-}
-
 static void init_philo(int i, t_philo *philo, t_table *table)
 {
 	philo->id = i;
@@ -144,7 +122,7 @@ static void init_philo(int i, t_philo *philo, t_table *table)
 	philo->is_died = 0;
 }
 
-static void start_threads(t_table *table)
+static void start_threads(t_table *table, pthread_mutex_t *forks)
 {
 	int i;
 	t_philo philo[table->phl_num];
@@ -166,9 +144,24 @@ static void start_threads(t_table *table)
 	i = 0;
 	while (i < table->phl_num)
 	{
-		pthread_mutex_destroy(&table->forks[i]);
+		pthread_mutex_destroy(&forks[i]);
 		i++;
 	}
+}
+
+static void init_mutex(t_table *table)
+{
+	int i;
+	pthread_mutex_t	forks[table->phl_num];
+
+	i = 0;
+	while (i < table->phl_num)
+	{
+		pthread_mutex_init(&forks[i], NULL);
+		i++;
+	}
+	table->forks = forks;
+	start_threads(table, forks);
 }
 
 static int init(t_table *table, char **argv)
@@ -187,8 +180,8 @@ static int init(t_table *table, char **argv)
 		table->eat_num = ft_atoi(argv[5]);
 	table->start = 0;
 	table->smb_died = 0;
+	table->sim_start = 0;
 	init_mutex(table);
-	start_threads(table);
 	return (0);
 }
 
