@@ -11,10 +11,18 @@
 //	return NULL;
 //}
 
+static void *check_die(void *val)
+{
+	t_philo *philo = (t_philo*)val;
+	return (NULL);
+}
+
 static void *simulation(void *val)
 {
 	t_philo *philo = (t_philo*)val;
+	pthread_t	die_time_thrd;
 
+	pthread_create(&die_time_thrd, NULL, check_die, philo);
 	printf("%d\n", philo->id);
 	return (NULL);
 }
@@ -75,6 +83,7 @@ static int init(t_table *table, char **argv)
 	else
 		table->eat_num = ft_atoi(argv[5]);
 	table->start = 0;
+	table->smb_died = 0;
 	init_mutex(table);
 	start_threads(table);
 	return (0);

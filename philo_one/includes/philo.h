@@ -13,6 +13,7 @@ typedef struct	s_table
 				int 			sleep_time;
 				int 			eat_num;
 				int 			start;
+				int 			smb_died;
 				pthread_mutex_t	*forks;
 }				t_table;
 
