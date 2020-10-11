@@ -71,11 +71,11 @@ char	*ft_strjoin_philo(char *time, char *id, char *action)
 	j = 0;
 	while (time[i])
 		result[j++] = time[i++];
-	result[j] = ' ';
+	result[j++] = ' ';
 	i = 0;
 	while (id[i])
 		result[j++] = id[i++];
-	result[j] = ' ';
+	result[j++] = ' ';
 	i = 0;
 	while (action[i])
 		result[j++] = action[i++];
