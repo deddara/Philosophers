@@ -34,6 +34,8 @@ int				ft_atoi(const char *str);
 void			ft_putnbr_fd(int n, int fd);
 char			*ft_itoa(int n);
 char	*ft_strjoin_philo(char *time, char *id, char *action);
+int		ft_strlen(char *str);
+
 
 
 #endif

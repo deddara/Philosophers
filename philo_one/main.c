@@ -24,12 +24,16 @@ static void msg(t_philo *philo, char *action)
 {
 	char *time;
 	char *str;
+	char *id;
 	int new_time;
 
 	new_time = take_time_in_ms() - philo->table->sim_start;
 	time = ft_itoa(new_time);
-	str = ft_strjoin_philo(time, ft_itoa(philo->id), action);
-	ft_putstr_fd(str, 1);
+	id = ft_itoa(philo->id);
+	str = ft_strjoin_philo(time, id, action);
+	write(1, str, ft_strlen(str));
+	free(id);
+	free(time);
 	free(str);
 }
 
@@ -40,7 +44,7 @@ static void take_forks(t_philo *philo)
 
 	left_fork = (philo->id - 1 + philo->table->phl_num) % philo->table->phl_num;
 	right_fork = ((philo->id + 1) % philo->table->phl_num);
-	if (!philo->id % 2)
+	if (philo->id % 2)
 	{
 		pthread_mutex_lock(&philo->table->forks[left_fork]);
 		msg(philo, "has taken a fork\n");
