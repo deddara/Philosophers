@@ -1,0 +1,3 @@
+/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles/Philosophers.dir

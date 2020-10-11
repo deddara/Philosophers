@@ -44,9 +44,9 @@ static void take_forks(t_philo *philo)
 
 	left_fork = (philo->id - 1 + philo->table->phl_num) % philo->table->phl_num;
 	right_fork = ((philo->id + 1) % philo->table->phl_num);
-	if (philo->id % 2)
+	if (!philo->id % 2)
 	{
-		pthread_mutex_lock(&philo->table->forks[left_fork]);
+		pthread_mutex_lock(&philo->table->forks[philo->id]);
 		msg(philo, "has taken a fork\n");
 		pthread_mutex_lock(&philo->table->forks[right_fork]);
 		msg(philo, "has taken a fork\n");
@@ -55,13 +55,13 @@ static void take_forks(t_philo *philo)
 	{
 		pthread_mutex_lock(&philo->table->forks[right_fork]);
 		msg(philo, "has taken a fork\n");
-		pthread_mutex_lock(&philo->table->forks[left_fork]);
+		pthread_mutex_lock(&philo->table->forks[philo->id]);
 		msg(philo, "has taken a fork\n");
 	}
 	msg(philo, "is eating\n");
 	usleep(philo->table->eat_time * 1000);
 	philo->last_lunch_t = take_time_in_ms();
-	pthread_mutex_unlock(&philo->table->forks[left_fork]);
+	pthread_mutex_unlock(&philo->table->forks[philo->id]);
 	pthread_mutex_unlock(&philo->table->forks[right_fork]);
 
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+    <generated>
+      <config projectName="Philosophers" targetName="Philosophers" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -10,12 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949f2386-d3d1-433b-908d-419327310a65" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Philosophers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Philosophers.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.c" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +23,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -42,6 +41,16 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
+    <configuration name="Philosophers" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="4 10 20 20" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philosophers" TARGET_NAME="Philosophers" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Philosophers" RUN_TARGET_NAME="Philosophers">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -60,6 +69,8 @@
       <workItem from="1602260899987" duration="1004000" />
       <workItem from="1602344191534" duration="11000" />
       <workItem from="1602344720124" duration="3027000" />
+      <workItem from="1602443902862" duration="1564000" />
+      <workItem from="1602445505594" duration="4477000" />
     </task>
     <servers />
   </component>
@@ -67,10 +78,54 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="671" y="324" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602445971481">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state x="671" y="324" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1331@0.23.2560.1331" timestamp="1602445971481" />
     <state x="1046" y="530" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602346892610">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
     <state x="1046" y="530" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2560.1331@0.23.2560.1331" timestamp="1602346892610" />
+    <state width="2100" height="322" key="GridCell.Tab.0.bottom" timestamp="1602449773016">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state width="2100" height="322" key="GridCell.Tab.0.bottom/0.23.2560.1331@0.23.2560.1331" timestamp="1602449773016" />
+    <state width="2100" height="322" key="GridCell.Tab.0.center" timestamp="1602449773016">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state width="2100" height="322" key="GridCell.Tab.0.center/0.23.2560.1331@0.23.2560.1331" timestamp="1602449773016" />
+    <state width="2100" height="322" key="GridCell.Tab.0.left" timestamp="1602449773015">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state width="2100" height="322" key="GridCell.Tab.0.left/0.23.2560.1331@0.23.2560.1331" timestamp="1602449773015" />
+    <state width="2100" height="322" key="GridCell.Tab.0.right" timestamp="1602449773016">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state width="2100" height="322" key="GridCell.Tab.0.right/0.23.2560.1331@0.23.2560.1331" timestamp="1602449773016" />
+    <state width="2100" height="322" key="GridCell.Tab.1.bottom" timestamp="1602449773017">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state width="2100" height="322" key="GridCell.Tab.1.bottom/0.23.2560.1331@0.23.2560.1331" timestamp="1602449773017" />
+    <state width="2100" height="322" key="GridCell.Tab.1.center" timestamp="1602449773017">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state width="2100" height="322" key="GridCell.Tab.1.center/0.23.2560.1331@0.23.2560.1331" timestamp="1602449773017" />
+    <state width="2100" height="322" key="GridCell.Tab.1.left" timestamp="1602449773017">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state width="2100" height="322" key="GridCell.Tab.1.left/0.23.2560.1331@0.23.2560.1331" timestamp="1602449773017" />
+    <state width="2100" height="322" key="GridCell.Tab.1.right" timestamp="1602449773017">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state width="2100" height="322" key="GridCell.Tab.1.right/0.23.2560.1331@0.23.2560.1331" timestamp="1602449773017" />
+    <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel" timestamp="1602445500820">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel/0.23.2560.1331@0.23.2560.1331" timestamp="1602445500820" />
+    <state width="640" height="476" key="ImportCMakeProjectWizard.topPanel" timestamp="1602445500820">
+      <screen x="0" y="23" width="2560" height="1331" />
+    </state>
+    <state width="640" height="476" key="ImportCMakeProjectWizard.topPanel/0.23.2560.1331@0.23.2560.1331" timestamp="1602445500819" />
     <state x="807" y="322" key="run.anything.popup" timestamp="1602264491418">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
