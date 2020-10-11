@@ -11,9 +11,31 @@
 //	return NULL;
 //}
 
+static int init_mutex(t_table *table, char **argv)
+{
+	int i;
+	pthread_mutex_t	forks[table->phl_num];
+	i = 0;
+
+//	if (!(table->forks = (pthread_mutex_t *)\
+//	malloc(sizeof(pthread_mutex_t) * table->phl_num)))
+//			return (1);
+	while (i < table->phl_num)
+	{
+		pthread_mutex_init(&forks[i], NULL);
+		i++;
+	}
+	table->forks = forks;
+	return (0);
+}
+
 static int init(t_table *table, char **argv)
 {
-	table->phl_num = ft_atoi(argv[1]);
+	if (!(table->phl_num = ft_atoi(argv[1])))
+	{
+		ft_putstr_fd("there are no philosophers\n", 2);
+		return (1);
+	}
 	table->die_time = ft_atoi(argv[2]);
 	table->eat_time = ft_atoi(argv[3]);
 	table->sleep_time = ft_atoi(argv[4]);
@@ -21,6 +43,8 @@ static int init(t_table *table, char **argv)
 		table->eat_num = -1;
 	else
 		table->eat_num = ft_atoi(argv[5]);
+	if (init_mutex(table, argv))
+		return (1);
 	return (0);
 }
 
