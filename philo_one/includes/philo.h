@@ -30,4 +30,6 @@ typedef struct	s_philo
 void	ft_putstr_fd(char *s, int fd);
 int		check_for_num(char *str);
 int				ft_atoi(const char *str);
+void			ft_putnbr_fd(int n, int fd);
+
 #endif

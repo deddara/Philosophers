@@ -12,26 +12,73 @@
 //	return NULL;
 //}
 
+static int take_time_in_ms(void)
+{
+	struct timeval start;
+
+	gettimeofday(&start, NULL);
+	return (((start.tv_sec) * 1000) + ((start.tv_usec)/1000));
+}
+
+static void take_forks(t_philo *philo)
+{
+	int left_fork;
+	int right_fork;
+
+	left_fork = (philo->id - 1 + philo->table->phl_num) % philo->table->phl_num;
+	right_fork = ((philo->id + 1) % philo->table->num);
+	if (!philo->id % 2)
+	{
+		pthread_mutex_lock(philo->table->forks[left_fork]);
+		ft_putstr_fd(take_time_in_ms());
+		ft_putnbr_fd(philo->id);
+		ft_putstr_fd("has taken a fork\n");
+		pthread_mutex_lock(philo->table->forks[right_fork]);
+		ft_putstr_fd(take_time_in_ms());
+		ft_putnbr_fd(philo->id);
+		ft_putstr_fd("has taken a fork\n");
+	}
+	else
+	{
+		pthread_mutex_lock(philo->table->forks[right_fork]);
+		ft_putstr_fd(take_time_in_ms());
+		ft_putnbr_fd(philo->id);
+		ft_putstr_fd("has taken a fork\n");
+		pthread_mutex_lock(philo->table->forks[left_fork]);
+		ft_putstr_fd(take_time_in_ms());
+		ft_putnbr_fd(philo->id);
+		ft_putstr_fd("has taken a fork\n");
+	}
+	ft_putstr_fd(take_time_in_ms());
+	ft_putnbr_fd(philo->id);
+	ft_putstr_fd("is eating\n");
+	usleep(philo->table->eat_time * 1000);
+	philo->last_lunch_t = take_time_in_ms(void);
+}
+
+
+
 static void *check_die(void *val)
 {
 	t_philo *philo = (t_philo*)val;
-	struct timeval stop, start;
-	gettimeofday(&start, NULL);
-	usleep(10000);
-	gettimeofday(&stop, NULL);
-	printf("%ld\n", (stop.tv_sec - start.tv_sec) * 1000 + (stop.tv_usec - start.tv_usec)/1000);
+	int time;
 
+	time = take_time_in_ms(void);
 	return (NULL);
 }
 
 static void *simulation(void *val)
 {
-	t_philo *philo = (t_philo*)val;
+	t_philo		*philo;
 	pthread_t	die_time_thrd;
 
+	philo = (t_philo*)val;
 	pthread_create(&die_time_thrd, NULL, check_die, philo);
-	usleep(10000);
-	printf("%d\n", philo->id);
+	philo->last_lunch_t = take_time_in_ms(void);
+	while (philo->table->eat_num)
+	{
+		take_forks(philo);
+	}
 	return (NULL);
 }
 
