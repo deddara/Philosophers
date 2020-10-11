@@ -22,6 +22,7 @@ typedef struct	s_philo
 				int		id;
 				int		last_lunch_t;
 				int 	cur_t;
+				int 	is_died;
 				t_table	*table;
 }				t_philo;
 

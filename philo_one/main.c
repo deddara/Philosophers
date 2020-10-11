@@ -2,6 +2,7 @@
 #include <pthread.h>
 #include "philo.h"
 #include <stdio.h>
+#include <sys/time.h>
 //void  *philo(void *val)
 //{
 //	t_table *table = (t_table *)val;
@@ -14,6 +15,12 @@
 static void *check_die(void *val)
 {
 	t_philo *philo = (t_philo*)val;
+	struct timeval stop, start;
+	gettimeofday(&start, NULL);
+	usleep(10000);
+	gettimeofday(&stop, NULL);
+	printf("%ld\n", (stop.tv_sec - start.tv_sec) * 1000 + (stop.tv_usec - start.tv_usec)/1000);
+
 	return (NULL);
 }
 
@@ -23,6 +30,7 @@ static void *simulation(void *val)
 	pthread_t	die_time_thrd;
 
 	pthread_create(&die_time_thrd, NULL, check_die, philo);
+	usleep(10000);
 	printf("%d\n", philo->id);
 	return (NULL);
 }
@@ -45,6 +53,7 @@ static void init_philo(int i, t_philo *philo, t_table *table)
 {
 	philo->id = i;
 	philo->table = table;
+	philo->is_died = 0;
 }
 
 static void start_threads(t_table *table)
