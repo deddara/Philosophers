@@ -26,34 +26,38 @@ static void take_forks(t_philo *philo)
 	int right_fork;
 
 	left_fork = (philo->id - 1 + philo->table->phl_num) % philo->table->phl_num;
-	right_fork = ((philo->id + 1) % philo->table->num);
+	right_fork = ((philo->id + 1) % philo->table->phl_num);
 	if (!philo->id % 2)
 	{
-		pthread_mutex_lock(philo->table->forks[left_fork]);
-		ft_putstr_fd(take_time_in_ms());
-		ft_putnbr_fd(philo->id);
-		ft_putstr_fd("has taken a fork\n");
-		pthread_mutex_lock(philo->table->forks[right_fork]);
-		ft_putstr_fd(take_time_in_ms());
-		ft_putnbr_fd(philo->id);
-		ft_putstr_fd("has taken a fork\n");
+		pthread_mutex_lock(&philo->table->forks[left_fork]);
+		ft_putnbr_fd(take_time_in_ms(), 1);
+		ft_putnbr_fd(philo->id, 1);
+		ft_putstr_fd("has taken a fork\n", 1);
+		pthread_mutex_lock(&philo->table->forks[right_fork]);
+		ft_putnbr_fd(take_time_in_ms(), 1);
+		ft_putnbr_fd(philo->id, 1);
+		ft_putstr_fd("has taken a fork\n", 1);
 	}
 	else
 	{
-		pthread_mutex_lock(philo->table->forks[right_fork]);
-		ft_putstr_fd(take_time_in_ms());
-		ft_putnbr_fd(philo->id);
-		ft_putstr_fd("has taken a fork\n");
-		pthread_mutex_lock(philo->table->forks[left_fork]);
-		ft_putstr_fd(take_time_in_ms());
-		ft_putnbr_fd(philo->id);
-		ft_putstr_fd("has taken a fork\n");
+		pthread_mutex_lock(&philo->table->forks[right_fork]);
+		ft_putnbr_fd(take_time_in_ms(), 1);
+		ft_putnbr_fd(philo->id, 1);
+		ft_putstr_fd("has taken a fork\n", 1);
+		pthread_mutex_lock(&philo->table->forks[left_fork]);
+		ft_putnbr_fd(take_time_in_ms(), 1);
+		ft_putnbr_fd(philo->id, 1);
+		ft_putstr_fd("has taken a fork\n", 1);
 	}
-	ft_putstr_fd(take_time_in_ms());
-	ft_putnbr_fd(philo->id);
-	ft_putstr_fd("is eating\n");
+	ft_putnbr_fd(take_time_in_ms(), 1);
+	ft_putstr_fd(" ", 1);
+	ft_putnbr_fd(philo->id, 1);
+	ft_putstr_fd(" is eating\n", 1);
 	usleep(philo->table->eat_time * 1000);
-	philo->last_lunch_t = take_time_in_ms(void);
+	philo->last_lunch_t = take_time_in_ms();
+	pthread_mutex_unlock(&philo->table->forks[left_fork]);
+	pthread_mutex_unlock(&philo->table->forks[right_fork]);
+
 }
 
 
@@ -63,8 +67,34 @@ static void *check_die(void *val)
 	t_philo *philo = (t_philo*)val;
 	int time;
 
-	time = take_time_in_ms(void);
+	time = take_time_in_ms();
+	while (time - philo->last_lunch_t < philo->table->die_time)
+	{
+		usleep(10000);
+	}
+	ft_putnbr_fd(take_time_in_ms(), 1);
+	ft_putstr_fd(" ", 1);
+	ft_putnbr_fd(philo->id, 1);
+	ft_putstr_fd(" died\n", 1);
+	philo->table->smb_died = 1;
 	return (NULL);
+}
+
+static void ft_sleep(t_philo *philo)
+{
+	ft_putnbr_fd(take_time_in_ms(), 1);
+	ft_putstr_fd(" ", 1);
+	ft_putnbr_fd(philo->id, 1);
+	ft_putstr_fd(" is sleeping\n", 1);
+	usleep(philo->table->sleep_time * 1000);
+}
+
+static void ft_think(t_philo *philo)
+{
+	ft_putnbr_fd(take_time_in_ms(), 1);
+	ft_putstr_fd(" ", 1);
+	ft_putnbr_fd(philo->id, 1);
+	ft_putstr_fd(" is thinking\n", 1);
 }
 
 static void *simulation(void *val)
@@ -74,10 +104,18 @@ static void *simulation(void *val)
 
 	philo = (t_philo*)val;
 	pthread_create(&die_time_thrd, NULL, check_die, philo);
-	philo->last_lunch_t = take_time_in_ms(void);
+	philo->last_lunch_t = take_time_in_ms();
 	while (philo->table->eat_num)
 	{
+		if (philo->table->smb_died)
+			return (NULL);
 		take_forks(philo);
+		if (philo->table->smb_died)
+			return (NULL);
+		ft_sleep(philo);
+		if (philo->table->smb_died)
+			return (NULL);
+		ft_think(philo);
 	}
 	return (NULL);
 }
