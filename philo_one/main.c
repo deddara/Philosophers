@@ -17,7 +17,23 @@ static int take_time_in_ms(void)
 	struct timeval start;
 
 	gettimeofday(&start, NULL);
-	return (((start.tv_sec) * 1000) + ((start.tv_usec)/1000));
+	return ((int)((start.tv_sec) * 1000) + ((start.tv_usec) / 1000));
+}
+
+static void my_wait(int time)
+{
+	int				start;
+	int				stop;
+	int				time_diff;
+
+	start = take_time_in_ms();
+	stop = take_time_in_ms();
+	time_diff = stop - start;
+	while (time_diff < time)
+	{
+		stop = take_time_in_ms();
+		time_diff = stop - start;
+	}
 }
 
 static void msg(t_philo *philo, char *action)
@@ -39,10 +55,8 @@ static void msg(t_philo *philo, char *action)
 
 static void take_forks(t_philo *philo)
 {
-	int left_fork;
 	int right_fork;
 
-	left_fork = (philo->id - 1 + philo->table->phl_num) % philo->table->phl_num;
 	right_fork = ((philo->id + 1) % philo->table->phl_num);
 	if (!philo->id % 2)
 	{
@@ -59,7 +73,7 @@ static void take_forks(t_philo *philo)
 		msg(philo, "has taken a fork\n");
 	}
 	msg(philo, "is eating\n");
-	usleep(philo->table->eat_time * 1000);
+	my_wait(philo->table->eat_time);
 	philo->last_lunch_t = take_time_in_ms();
 	pthread_mutex_unlock(&philo->table->forks[philo->id]);
 	pthread_mutex_unlock(&philo->table->forks[right_fork]);
@@ -87,7 +101,7 @@ static void *check_die(void *val)
 static void ft_sleep(t_philo *philo)
 {
 	msg(philo, "is sleeping\n");
-	usleep(philo->table->sleep_time * 1000);
+	my_wait(philo->table->sleep_time);
 }
 
 static void ft_think(t_philo *philo)
