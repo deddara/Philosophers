@@ -15,20 +15,21 @@
 static int		forks_handler(t_philo *philo)
 {
 	sem_wait(philo->table->steward);
-	if (philo->table->smb_died)
-	{
-		sem_post(philo->table->steward);
-		return (1);
-	}
 	sem_wait(philo->table->forks);
-	msg(philo, "has taken a fork\n");
 	if (philo->table->smb_died)
 	{
 		sem_post(philo->table->steward);
 		sem_post(philo->table->forks);
 		return (1);
 	}
+	msg(philo, "has taken a fork\n");
 	sem_wait(philo->table->forks);
+	if (philo->table->smb_died)
+	{
+		sem_post(philo->table->steward);
+		sem_post(philo->table->forks);
+		return (1);
+	}
 	msg(philo, "has taken a fork\n");
 	sem_post(philo->table->steward);
 	return (0);
