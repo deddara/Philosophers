@@ -31,9 +31,9 @@ static void my_wait(int time)
 	time_diff = stop - start;
 	while (time_diff < time)
 	{
-		usleep(10);
 		stop = take_time_in_ms();
 		time_diff = stop - start;
+		usleep(10);
 	}
 }
 
@@ -59,7 +59,7 @@ static void take_forks(t_philo *philo)
 	int right_fork;
 
 	right_fork = ((philo->id + 1) % philo->table->phl_num);
-	if (!philo->id % 2)
+	if (philo->id % 2 == 0)
 	{
 		pthread_mutex_lock(&philo->table->forks[philo->id]);
 		if (philo->table->smb_died)
@@ -101,8 +101,8 @@ static void take_forks(t_philo *philo)
 		pthread_mutex_unlock(&philo->table->forks[right_fork]);
 		return ;
 	}
-	philo->eat_num--;
 	msg(philo, "is eating\n");
+	philo->eat_num--;
 	philo->last_lunch_t = take_time_in_ms();
 	my_wait(philo->table->eat_time);
 	pthread_mutex_unlock(&philo->table->forks[philo->id]);
@@ -117,12 +117,12 @@ static void *check_die(void *val)
 	int time;
 
 	time = take_time_in_ms();
-	while (time - philo->last_lunch_t < philo->table->die_time)
+	while (time - philo->last_lunch_t <= philo->table->die_time)
 	{
 		time = take_time_in_ms();
 		usleep(10);
 	}
-	if (philo->eat_num == 0)
+	if (!philo->eat_num)
 		return (NULL);
 	pthread_mutex_lock(&philo->table->death_mutex);
 	if (philo->table->smb_died)
@@ -164,6 +164,7 @@ static void *simulation(void *val)
 			return (NULL);
 		msg(philo, "is thinking\n");
 	}
+	pthread_join(die_time_thrd, NULL);
 	return (NULL);
 }
 
