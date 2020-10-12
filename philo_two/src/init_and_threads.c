@@ -47,12 +47,15 @@ static void		init_semaphores_and_start_threads(t_table *table)
 	static pthread_mutex_t	waiter = PTHREAD_MUTEX_INITIALIZER;
 	sem_t					*forks;
 
+	sem_unlink("forks");
 	forks = sem_open("forks", O_CREAT, 0660, table->phl_num);
 	table->forks = forks;
 	table->death_mutex = death_mutex;
 	table->steward = waiter;
 	start_threads(table);
+
 	sem_close(forks);
+
 	pthread_mutex_destroy(&death_mutex);
 	pthread_mutex_destroy(&waiter);
 }
