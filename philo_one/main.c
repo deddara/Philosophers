@@ -3,14 +3,6 @@
 #include "philo.h"
 #include <stdio.h>
 #include <sys/time.h>
-//void  *philo(void *val)
-//{
-//	t_table *table = (t_table *)val;
-//	pthread_mutex_lock(&table->l_f);
-//	write(1, "s\n", 2);
-//	pthread_mutex_unlock(&table->l_f);
-//	return NULL;
-//}
 
 static int take_time_in_ms(void)
 {
@@ -54,6 +46,26 @@ static void msg(t_philo *philo, char *action)
 	free(str);
 }
 
+static int forks_handler(t_philo *philo, int first_fork, int second_fork)
+{
+	pthread_mutex_lock(&philo->table->forks[first_fork]);
+	if (philo->table->smb_died)
+	{
+		pthread_mutex_unlock(&philo->table->forks[first_fork]);
+		return (1);
+	}
+	msg(philo, "has taken a fork\n");
+	pthread_mutex_lock(&philo->table->forks[second_fork]);
+	if (philo->table->smb_died)
+	{
+		pthread_mutex_unlock(&philo->table->forks[first_fork]);
+		pthread_mutex_unlock(&philo->table->forks[second_fork]);
+		return (1);
+	}
+	msg(philo, "has taken a fork\n");
+	return (0);
+}
+
 static void take_forks(t_philo *philo)
 {
 	int right_fork;
@@ -61,39 +73,13 @@ static void take_forks(t_philo *philo)
 	right_fork = ((philo->id + 1) % philo->table->phl_num);
 	if (philo->id % 2 == 0)
 	{
-		pthread_mutex_lock(&philo->table->forks[philo->id]);
-		if (philo->table->smb_died)
-		{
-			pthread_mutex_unlock(&philo->table->forks[philo->id]);
+		if (forks_handler(philo, philo->id, right_fork))
 			return ;
-		}
-		msg(philo, "has taken a fork\n");
-		pthread_mutex_lock(&philo->table->forks[right_fork]);
-		if (philo->table->smb_died)
-		{
-			pthread_mutex_unlock(&philo->table->forks[philo->id]);
-			pthread_mutex_unlock(&philo->table->forks[right_fork]);
-			return ;
-		}
-		msg(philo, "has taken a fork\n");
 	}
 	else
 	{
-		pthread_mutex_lock(&philo->table->forks[right_fork]);
-		if (philo->table->smb_died)
-		{
-			pthread_mutex_unlock(&philo->table->forks[right_fork]);
+		if (forks_handler(philo, right_fork, philo->id))
 			return ;
-		}
-		msg(philo, "has taken a fork\n");
-		pthread_mutex_lock(&philo->table->forks[philo->id]);
-		if (philo->table->smb_died)
-		{
-			pthread_mutex_unlock(&philo->table->forks[right_fork]);
-			pthread_mutex_unlock(&philo->table->forks[philo->id]);
-			return ;
-		}
-		msg(philo, "has taken a fork\n");
 	}
 	if (philo->table->smb_died)
 	{
@@ -113,9 +99,10 @@ static void take_forks(t_philo *philo)
 
 static void *check_die(void *val)
 {
-	t_philo *philo = (t_philo*)val;
+	t_philo *philo;
 	int time;
 
+	philo = (t_philo*)val;
 	time = take_time_in_ms();
 	while (time - philo->last_lunch_t <= philo->table->die_time)
 	{
@@ -205,8 +192,8 @@ static void start_threads(t_table *table, pthread_mutex_t *forks)
 
 static void init_mutex(t_table *table)
 {
-	int i;
-	pthread_mutex_t	forks[table->phl_num];
+	int						i;
+	pthread_mutex_t			forks[table->phl_num];
 	static pthread_mutex_t	death_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 	i = 0;
@@ -237,7 +224,6 @@ static int init(t_table *table, char **argv)
 		table->eat_num = ft_atoi(argv[5]);
 	table->start = 0;
 	table->smb_died = 0;
-	table->sim_start = 0;
 	init_mutex(table);
 	return (0);
 }
@@ -269,19 +255,9 @@ int check_validation(int argc, char **argv)
 int main(int argc, char **argv)
 {
 	t_table		table;
-//	pthread_t	thread;
-//	pthread_t	thread1;
 	if (check_validation(argc, argv))
 		return (1);
 	if (init(&table, argv))
 		return(1);
-
-//	pthread_mutex_init(&table.l_f, NULL);
-//	pthread_create(&thread, NULL, philo, &table);
-//	pthread_create(&thread1, NULL, philo, &table);
-
-//	pthread_join(thread, NULL);
-
-
 	return (0);
 }
