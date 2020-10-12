@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: deddara <deddara@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/12 17:51:21 by deddara           #+#    #+#             */
+/*   Updated: 2020/10/12 17:51:22 by deddara          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	ft_putstr_fd(char *s, int fd)
@@ -14,7 +26,7 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-int ft_strlen(char *str)
+int		ft_strlen(char *str)
 {
 	int i;
 
@@ -24,7 +36,7 @@ int ft_strlen(char *str)
 	return (i);
 }
 
-int check_for_num(char *str)
+int		check_for_num(char *str)
 {
 	int i;
 
@@ -49,22 +61,10 @@ char	*ft_strjoin_philo(char *time, char *id, char *action)
 {
 	char	*result;
 	int		i;
-	int 	j;
+	int		j;
 	int		count;
 
-	i = 0;
-	while (time[i])
-		i++;
-	count = i;
-	i = 0;
-	while (id[i])
-		i++;
-	count += i;
-	i = 0;
-	while (action[i])
-		i++;
-	count += i;
-
+	count = ft_strlen(time) + ft_strlen(id) + ft_strlen(action);
 	if (!(result = (char*)malloc(sizeof(char) * count + 3)))
 		return (NULL);
 	i = 0;
