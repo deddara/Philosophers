@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+# include <semaphore.h>
 
 static void		init_philo(int i, t_philo *philo, t_table *table)
 {
@@ -19,7 +20,7 @@ static void		init_philo(int i, t_philo *philo, t_table *table)
 	philo->eat_num = table->eat_num;
 }
 
-static void		start_threads(t_table *table, pthread_mutex_t *forks)
+static void		start_threads(t_table *table)
 {
 	int			i;
 	t_philo		philo[table->phl_num];
@@ -38,30 +39,23 @@ static void		start_threads(t_table *table, pthread_mutex_t *forks)
 		pthread_join(thread[i], NULL);
 		i++;
 	}
-	i = 0;
-	while (i < table->phl_num)
-	{
-		pthread_mutex_destroy(&forks[i]);
-		i++;
-	}
 }
 
-static void		init_mutex_and_start_threads(t_table *table)
+static void		init_semaphores_and_start_threads(t_table *table)
 {
 	int						i;
-	pthread_mutex_t			forks[table->phl_num];
 	static pthread_mutex_t	death_mutex = PTHREAD_MUTEX_INITIALIZER;
+	static pthread_mutex_t	waiter = PTHREAD_MUTEX_INITIALIZER;
+	sem_t					*forks;
 
-	i = 0;
-	while (i < table->phl_num)
-	{
-		pthread_mutex_init(&forks[i], NULL);
-		i++;
-	}
+	forks = sem_open("forks", O_CREAT, 0660, table->phl_num);
 	table->forks = forks;
 	table->death_mutex = death_mutex;
-	start_threads(table, forks);
+	table->steward = waiter;
+	start_threads(table);
+	sem_close(forks);
 	pthread_mutex_destroy(&death_mutex);
+	pthread_mutex_destroy(&waiter);
 }
 
 int				init_and_threads(t_table *table, char **argv)
@@ -79,6 +73,6 @@ int				init_and_threads(t_table *table, char **argv)
 	else
 		table->eat_num = ft_atoi(argv[5]);
 	table->smb_died = 0;
-	init_mutex_and_start_threads(table);
+	init_semaphores_and_start_threads(table);
 	return (0);
 }
