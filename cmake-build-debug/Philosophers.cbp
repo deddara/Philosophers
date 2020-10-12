@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/includes"/>
 					<Add directory="/Users/deddara/school21/philosophers_project/Philosophers/philo_one/includes"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
@@ -66,6 +67,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/includes"/>
 					<Add directory="/Users/deddara/school21/philosophers_project/Philosophers/philo_one/includes"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
@@ -82,25 +84,31 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_one/Makefile">
+		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/Makefile">
 			<Option target="Philosophers"/>
 		</Unit>
-		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_one/includes/philo.h">
+		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/includes/philo.h">
 			<Option target="Philosophers"/>
 		</Unit>
-		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_one/main.c">
+		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/main.c">
 			<Option target="Philosophers"/>
 		</Unit>
-		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_one/src/atoi.c">
+		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/src/atoi.c">
 			<Option target="Philosophers"/>
 		</Unit>
-		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_one/src/ft_putnbr.c">
+		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/src/init_and_threads.c">
 			<Option target="Philosophers"/>
 		</Unit>
-		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_one/src/itoa.c">
+		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/src/itoa.c">
 			<Option target="Philosophers"/>
 		</Unit>
-		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_one/src/utils.c">
+		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/src/philo_simulation.c">
+			<Option target="Philosophers"/>
+		</Unit>
+		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/src/philo_utils.c">
+			<Option target="Philosophers"/>
+		</Unit>
+		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_two/src/utils.c">
 			<Option target="Philosophers"/>
 		</Unit>
 		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/CMakeLists.txt">

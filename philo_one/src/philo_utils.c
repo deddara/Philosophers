@@ -46,7 +46,7 @@ void		msg(t_philo *philo, char *action)
 
 	new_time = take_time_in_ms() - philo->table->sim_start;
 	time = ft_itoa(new_time);
-	id = ft_itoa(philo->id);
+	id = ft_itoa(philo->id + 1);
 	str = ft_strjoin_philo(time, id, action);
 	write(1, str, ft_strlen(str));
 	free(id);

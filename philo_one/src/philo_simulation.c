@@ -99,14 +99,14 @@ void			*simulation(void *val)
 	while (philo->eat_num)
 	{
 		if (philo->table->smb_died)
-			return (NULL);
+			break ;
 		take_forks(philo);
 		if (philo->table->smb_died)
-			return (NULL);
+			break ;
 		msg(philo, "is sleeping\n");
 		my_wait(philo->table->sleep_time);
 		if (philo->table->smb_died)
-			return (NULL);
+			break ;
 		msg(philo, "is thinking\n");
 	}
 	pthread_join(die_time_thrd, NULL);

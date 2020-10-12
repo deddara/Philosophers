@@ -12,19 +12,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949f2386-d3d1-433b-908d-419327310a65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/philo_one/src/philo_simulation.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/philo_one/src/philo_utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/includes/philo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/atoi.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/ft_putnbr.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/itoa.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/utils.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/philo_one" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/src/ft_putnbr.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/C.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_one/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_one/main.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_one/src/atoi.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_one/src/atoi.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_one/src/ft_putnbr.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_one/src/itoa.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_one/src/itoa.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_one/src/utils.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_one/src/utils.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Philosophers" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Philosophers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Philosophers.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Philosophers.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/src/philo_simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/src/philo_simulation.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/src/philo_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/src/philo_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/philo_simulation.o" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/obj/src/philo_simulation.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_two/philo_two" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/philo_two" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_two/src/philo_simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/src/philo_simulation.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +69,12 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration name="Philosophers" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="4 10 20 20" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philosophers" TARGET_NAME="Philosophers" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Philosophers" RUN_TARGET_NAME="Philosophers">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="Philosophers" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="8 310 200 200" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philosophers" TARGET_NAME="Philosophers" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Philosophers" RUN_TARGET_NAME="Philosophers">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -84,7 +100,10 @@
       <workItem from="1602443902862" duration="1564000" />
       <workItem from="1602445505594" duration="5075000" />
       <workItem from="1602492915133" duration="1613000" />
-      <workItem from="1602500707618" duration="11830000" />
+      <workItem from="1602500707618" duration="14435000" />
+      <workItem from="1602523037728" duration="321000" />
+      <workItem from="1602523362971" duration="144000" />
+      <workItem from="1602523678868" duration="3044000" />
     </task>
     <servers />
   </component>
@@ -92,46 +111,46 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="671" y="324" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602445971481">
+    <state x="671" y="324" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602524316972">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
-    <state x="671" y="324" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1331@0.23.2560.1331" timestamp="1602445971481" />
+    <state x="671" y="324" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1331@0.23.2560.1331" timestamp="1602524316972" />
     <state x="1046" y="530" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602346892610">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
     <state x="1046" y="530" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2560.1331@0.23.2560.1331" timestamp="1602346892610" />
-    <state width="2100" height="322" key="GridCell.Tab.0.bottom" timestamp="1602451368539">
+    <state width="2518" height="337" key="GridCell.Tab.0.bottom" timestamp="1602524318983">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
-    <state width="2100" height="322" key="GridCell.Tab.0.bottom/0.23.2560.1331@0.23.2560.1331" timestamp="1602451368539" />
-    <state width="2100" height="322" key="GridCell.Tab.0.center" timestamp="1602451368539">
+    <state width="2518" height="337" key="GridCell.Tab.0.bottom/0.23.2560.1331@0.23.2560.1331" timestamp="1602524318983" />
+    <state width="2518" height="337" key="GridCell.Tab.0.center" timestamp="1602524318982">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
-    <state width="2100" height="322" key="GridCell.Tab.0.center/0.23.2560.1331@0.23.2560.1331" timestamp="1602451368539" />
-    <state width="2100" height="322" key="GridCell.Tab.0.left" timestamp="1602451368529">
+    <state width="2518" height="337" key="GridCell.Tab.0.center/0.23.2560.1331@0.23.2560.1331" timestamp="1602524318982" />
+    <state width="2518" height="337" key="GridCell.Tab.0.left" timestamp="1602524318982">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
-    <state width="2100" height="322" key="GridCell.Tab.0.left/0.23.2560.1331@0.23.2560.1331" timestamp="1602451368529" />
-    <state width="2100" height="322" key="GridCell.Tab.0.right" timestamp="1602451368539">
+    <state width="2518" height="337" key="GridCell.Tab.0.left/0.23.2560.1331@0.23.2560.1331" timestamp="1602524318982" />
+    <state width="2518" height="337" key="GridCell.Tab.0.right" timestamp="1602524318983">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
-    <state width="2100" height="322" key="GridCell.Tab.0.right/0.23.2560.1331@0.23.2560.1331" timestamp="1602451368539" />
-    <state width="2100" height="322" key="GridCell.Tab.1.bottom" timestamp="1602451368540">
+    <state width="2518" height="337" key="GridCell.Tab.0.right/0.23.2560.1331@0.23.2560.1331" timestamp="1602524318983" />
+    <state width="2518" height="337" key="GridCell.Tab.1.bottom" timestamp="1602524318984">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
-    <state width="2100" height="322" key="GridCell.Tab.1.bottom/0.23.2560.1331@0.23.2560.1331" timestamp="1602451368540" />
-    <state width="2100" height="322" key="GridCell.Tab.1.center" timestamp="1602451368540">
+    <state width="2518" height="337" key="GridCell.Tab.1.bottom/0.23.2560.1331@0.23.2560.1331" timestamp="1602524318984" />
+    <state width="2518" height="337" key="GridCell.Tab.1.center" timestamp="1602524318984">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
-    <state width="2100" height="322" key="GridCell.Tab.1.center/0.23.2560.1331@0.23.2560.1331" timestamp="1602451368540" />
-    <state width="2100" height="322" key="GridCell.Tab.1.left" timestamp="1602451368540">
+    <state width="2518" height="337" key="GridCell.Tab.1.center/0.23.2560.1331@0.23.2560.1331" timestamp="1602524318984" />
+    <state width="2518" height="337" key="GridCell.Tab.1.left" timestamp="1602524318983">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
-    <state width="2100" height="322" key="GridCell.Tab.1.left/0.23.2560.1331@0.23.2560.1331" timestamp="1602451368540" />
-    <state width="2100" height="322" key="GridCell.Tab.1.right" timestamp="1602451368540">
+    <state width="2518" height="337" key="GridCell.Tab.1.left/0.23.2560.1331@0.23.2560.1331" timestamp="1602524318983" />
+    <state width="2518" height="337" key="GridCell.Tab.1.right" timestamp="1602524318984">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
-    <state width="2100" height="322" key="GridCell.Tab.1.right/0.23.2560.1331@0.23.2560.1331" timestamp="1602451368540" />
+    <state width="2518" height="337" key="GridCell.Tab.1.right/0.23.2560.1331@0.23.2560.1331" timestamp="1602524318984" />
     <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel" timestamp="1602445500820">
       <screen x="0" y="23" width="2560" height="1331" />
     </state>
