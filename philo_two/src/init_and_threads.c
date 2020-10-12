@@ -43,7 +43,6 @@ static void		start_threads(t_table *table)
 
 static void		init_semaphores_and_start_threads(t_table *table)
 {
-	int						i;
 	static pthread_mutex_t	death_mutex = PTHREAD_MUTEX_INITIALIZER;
 	static pthread_mutex_t	waiter = PTHREAD_MUTEX_INITIALIZER;
 	sem_t					*forks;

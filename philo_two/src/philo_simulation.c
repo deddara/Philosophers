@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
-
+# include <semaphore.h>
 static int		forks_handler(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->table->steward);
