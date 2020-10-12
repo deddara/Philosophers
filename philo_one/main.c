@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <sys/time.h>
 
-static int take_time_in_ms(void)
+static int		take_time_in_ms(void)
 {
 	struct timeval start;
 
@@ -24,7 +24,7 @@ static int take_time_in_ms(void)
 	return ((int)((start.tv_sec) * 1000) + ((start.tv_usec) / 1000));
 }
 
-static void my_wait(int time)
+static void		my_wait(int time)
 {
 	int				start;
 	int				stop;
@@ -41,12 +41,12 @@ static void my_wait(int time)
 	}
 }
 
-static void msg(t_philo *philo, char *action)
+static void		msg(t_philo *philo, char *action)
 {
-	char *time;
-	char *str;
-	char *id;
-	int new_time;
+	char	*time;
+	char	*str;
+	char	*id;
+	int		new_time;
 
 	new_time = take_time_in_ms() - philo->table->sim_start;
 	time = ft_itoa(new_time);
@@ -58,7 +58,7 @@ static void msg(t_philo *philo, char *action)
 	free(str);
 }
 
-static int forks_handler(t_philo *philo, int first_fork, int second_fork)
+static int		forks_handler(t_philo *philo, int first_fork, int second_fork)
 {
 	pthread_mutex_lock(&philo->table->forks[first_fork]);
 	if (philo->table->smb_died)
@@ -78,7 +78,7 @@ static int forks_handler(t_philo *philo, int first_fork, int second_fork)
 	return (0);
 }
 
-static void take_forks(t_philo *philo)
+static void		take_forks(t_philo *philo)
 {
 	int right_fork;
 
@@ -107,12 +107,10 @@ static void take_forks(t_philo *philo)
 	pthread_mutex_unlock(&philo->table->forks[right_fork]);
 }
 
-
-
-static void *check_die(void *val)
+static void		*check_die(void *val)
 {
-	t_philo *philo;
-	int time;
+	t_philo	*philo;
+	int		time;
 
 	philo = (t_philo*)val;
 	time = take_time_in_ms();
@@ -135,14 +133,13 @@ static void *check_die(void *val)
 	return (NULL);
 }
 
-static void ft_sleep(t_philo *philo)
+static void		ft_sleep(t_philo *philo)
 {
 	msg(philo, "is sleeping\n");
 	my_wait(philo->table->sleep_time);
 }
 
-
-static void *simulation(void *val)
+static void		*simulation(void *val)
 {
 	t_philo		*philo;
 	pthread_t	die_time_thrd;
@@ -167,7 +164,7 @@ static void *simulation(void *val)
 	return (NULL);
 }
 
-static void init_philo(int i, t_philo *philo, t_table *table)
+static void		init_philo(int i, t_philo *philo, t_table *table)
 {
 	philo->id = i;
 	philo->table = table;
@@ -175,11 +172,11 @@ static void init_philo(int i, t_philo *philo, t_table *table)
 	philo->is_died = 0;
 }
 
-static void start_threads(t_table *table, pthread_mutex_t *forks)
+static void		start_threads(t_table *table, pthread_mutex_t *forks)
 {
-	int i;
-	t_philo philo[table->phl_num];
-	pthread_t thread[table->phl_num];
+	int			i;
+	t_philo		philo[table->phl_num];
+	pthread_t	thread[table->phl_num];
 
 	i = 0;
 	while (i < table->phl_num)
@@ -202,7 +199,7 @@ static void start_threads(t_table *table, pthread_mutex_t *forks)
 	}
 }
 
-static void init_mutex(t_table *table)
+static void		init_mutex(t_table *table)
 {
 	int						i;
 	pthread_mutex_t			forks[table->phl_num];
@@ -220,7 +217,7 @@ static void init_mutex(t_table *table)
 	pthread_mutex_destroy(&death_mutex);
 }
 
-static int init(t_table *table, char **argv)
+static int		init(t_table *table, char **argv)
 {
 	if (!(table->phl_num = ft_atoi(argv[1])))
 	{
@@ -240,7 +237,7 @@ static int init(t_table *table, char **argv)
 	return (0);
 }
 
-int check_validation(int argc, char **argv)
+int				check_validation(int argc, char **argv)
 {
 	int i;
 
@@ -264,12 +261,13 @@ int check_validation(int argc, char **argv)
 	return (0);
 }
 
-int main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_table		table;
+
 	if (check_validation(argc, argv))
 		return (1);
 	if (init(&table, argv))
-		return(1);
+		return (1);
 	return (0);
 }
