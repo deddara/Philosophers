@@ -23,6 +23,7 @@ typedef struct	s_philo
 {
 				int		id;
 				int		last_lunch_t;
+				int 	eat_num;
 				int 	cur_t;
 				int 	is_died;
 				t_table	*table;
