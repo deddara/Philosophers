@@ -43,21 +43,23 @@ static void		start_threads(t_table *table)
 
 static void		init_semaphores_and_start_threads(t_table *table)
 {
-	static pthread_mutex_t	death_mutex = PTHREAD_MUTEX_INITIALIZER;
-	static pthread_mutex_t	waiter = PTHREAD_MUTEX_INITIALIZER;
+	sem_t					*death_sem;
+	sem_t					*waiter;
 	sem_t					*forks;
 
 	sem_unlink("forks");
+	sem_unlink("waiter");
+	sem_unlink("death_sem");
 	forks = sem_open("forks", O_CREAT, 0660, table->phl_num);
+	death_sem = sem_open("death_sem", O_CREAT, 0660, 1);
+	waiter = sem_open("waiter",  O_CREAT, 0660, 1);
 	table->forks = forks;
-	table->death_mutex = death_mutex;
 	table->steward = waiter;
+	table->death_sem = death_sem;
 	start_threads(table);
-
 	sem_close(forks);
-
-	pthread_mutex_destroy(&death_mutex);
-	pthread_mutex_destroy(&waiter);
+	sem_close(waiter);
+	sem_close(death_sem);
 }
 
 int				init_and_threads(t_table *table, char **argv)

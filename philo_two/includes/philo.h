@@ -28,8 +28,8 @@ typedef struct		s_table
 	int				eat_num;
 	int				smb_died;
 	int				sim_start;
-	pthread_mutex_t	death_mutex;
-	pthread_mutex_t	steward;
+	sem_t 			*death_sem;
+	sem_t 			*steward;
 	sem_t 			*forks;
 }					t_table;
 

@@ -14,23 +14,23 @@
 # include <semaphore.h>
 static int		forks_handler(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->table->steward);
-//	if (philo->table->smb_died)
-//	{
-//		pthread_mutex_unlock(&philo->table->steward);
-//		return (1);
-//	}
+	sem_wait(philo->table->steward);
+	if (philo->table->smb_died)
+	{
+		sem_post(philo->table->steward);
+		return (1);
+	}
 	sem_wait(philo->table->forks);
 	msg(philo, "has taken a fork\n");
-//	if (philo->table->smb_died)
-//	{
-//		sem_post(philo->table->forks);
-//		pthread_mutex_unlock(&philo->table->steward);
-//		return (1);
-//	}
+	if (philo->table->smb_died)
+	{
+		sem_post(philo->table->steward);
+		sem_post(philo->table->forks);
+		return (1);
+	}
 	sem_wait(philo->table->forks);
 	msg(philo, "has taken a fork\n");
-	pthread_mutex_unlock(&philo->table->steward);
+	sem_post(philo->table->steward);
 	return (0);
 }
 
@@ -38,12 +38,12 @@ static void		take_forks(t_philo *philo)
 {
 	if (forks_handler(philo))
 		return ;
-//	if (philo->table->smb_died)
-//	{
-//		sem_post(philo->table->forks);
-//		sem_post(philo->table->forks);
-//		return ;
-//	}
+	if (philo->table->smb_died)
+	{
+		sem_post(philo->table->forks);
+		sem_post(philo->table->forks);
+		return ;
+	}
 	msg(philo, "is eating\n");
 	philo->eat_num--;
 	philo->last_lunch_t = take_time_in_ms();
@@ -66,15 +66,15 @@ static void		*check_die(void *val)
 	}
 	if (!philo->eat_num)
 		return (NULL);
-	pthread_mutex_lock(&philo->table->death_mutex);
+	sem_wait(philo->table->death_sem);
 	if (philo->table->smb_died)
 	{
-		pthread_mutex_unlock(&philo->table->death_mutex);
+		sem_post(philo->table->death_sem);
 		return (NULL);
 	}
 	msg(philo, "is died\n");
 	philo->table->smb_died = 1;
-	pthread_mutex_unlock(&philo->table->death_mutex);
+	sem_post(philo->table->death_sem);
 	return (NULL);
 }
 
