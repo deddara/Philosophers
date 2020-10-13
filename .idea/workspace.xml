@@ -12,9 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949f2386-d3d1-433b-908d-419327310a65" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/includes/philo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/philo_one/src/init_and_threads.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/src/init_and_threads.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/src/init_and_processes.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_three/src/init_and_processes.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/src/init_and_threads.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/src/init_and_threads.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/src/philo_simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/src/philo_simulation.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,11 +50,6 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Philosophers" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="8 310 200 200" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Philosophers" TARGET_NAME="Philosophers" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Philosophers" RUN_TARGET_NAME="Philosophers">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -79,7 +81,9 @@
       <workItem from="1602523362971" duration="144000" />
       <workItem from="1602523678868" duration="3044000" />
       <workItem from="1602571205467" duration="8114000" />
-      <workItem from="1602585337229" duration="3053000" />
+      <workItem from="1602585337229" duration="4042000" />
+      <workItem from="1602592480693" duration="10000" />
+      <workItem from="1602597335329" duration="1712000" />
     </task>
     <servers />
   </component>

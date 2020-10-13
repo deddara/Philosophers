@@ -28,6 +28,7 @@ typedef struct		s_table
 	int				smb_died;
 	pthread_mutex_t	death_mutex;
 	pthread_mutex_t	output_mutex;
+	pthread_mutex_t	time_mutex;
 	pthread_mutex_t	*forks;
 }					t_table;
 

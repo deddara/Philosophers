@@ -38,6 +38,13 @@ static int		forks_handler(t_philo *philo, int first_fork, int second_fork)
 	return (0);
 }
 
+static void		start_eat(t_philo *philo, int right_fork)
+{
+	my_wait(philo->table->eat_time);
+	pthread_mutex_unlock(&philo->table->forks[philo->id]);
+	pthread_mutex_unlock(&philo->table->forks[right_fork]);
+}
+
 static void		take_forks(t_philo *philo)
 {
 	int right_fork;
@@ -61,24 +68,25 @@ static void		take_forks(t_philo *philo)
 	}
 	msg(philo, "is eating\n");
 	philo->eat_num--;
+	pthread_mutex_lock(&philo->table->time_mutex);
 	philo->last_lunch_t = take_time_in_ms();
-	my_wait(philo->table->eat_time);
-	pthread_mutex_unlock(&philo->table->forks[philo->id]);
-	pthread_mutex_unlock(&philo->table->forks[right_fork]);
+	pthread_mutex_unlock(&philo->table->time_mutex);
+	start_eat(philo, right_fork);
 }
 
 static void		*check_die(void *val)
 {
 	t_philo	*philo;
-	int		time;
 
 	philo = (t_philo*)val;
-	time = take_time_in_ms();
-	while (time - philo->last_lunch_t <= philo->table->die_time)
+	pthread_mutex_lock(&philo->table->time_mutex);
+	while (take_time_in_ms() - philo->last_lunch_t <= philo->table->die_time)
 	{
-		time = take_time_in_ms();
+		pthread_mutex_unlock(&philo->table->time_mutex);
 		usleep(10);
+		pthread_mutex_lock(&philo->table->time_mutex);
 	}
+	pthread_mutex_unlock(&philo->table->time_mutex);
 	if (!philo->eat_num)
 		return (NULL);
 	pthread_mutex_lock(&philo->table->death_mutex);
