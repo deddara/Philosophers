@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
-# include <semaphore.h>
+
 static int		forks_handler(t_philo *philo)
 {
 	sem_wait(philo->table->steward);

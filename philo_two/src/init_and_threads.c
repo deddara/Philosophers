@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "philo.h"
-# include <semaphore.h>
 
 static void		init_philo(int i, t_philo *philo, t_table *table)
 {
@@ -52,7 +51,7 @@ static void		init_semaphores_and_start_threads(t_table *table)
 	sem_unlink("death_sem");
 	forks = sem_open("forks", O_CREAT, 0660, table->phl_num);
 	death_sem = sem_open("death_sem", O_CREAT, 0660, 1);
-	waiter = sem_open("waiter",  O_CREAT, 0660, 1);
+	waiter = sem_open("waiter", O_CREAT, 0660, 1);
 	table->forks = forks;
 	table->steward = waiter;
 	table->death_sem = death_sem;

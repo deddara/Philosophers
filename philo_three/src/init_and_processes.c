@@ -11,23 +11,8 @@
 /* ************************************************************************** */
 
 #include "philo.h"
-# include <semaphore.h>
-#include <signal.h>
 
-static void kill_processes(t_table *table)
-{
-	int i;
-
-	i = 0;
-	while (i < table->phl_num)
-	{
-		kill(table->pid[i], SIGKILL);
-		i++;
-	}
-}
-
-
-static void philo_process(t_philo *philo, t_table *table, int i)
+static void		philo_process(t_philo *philo, t_table *table, int i)
 {
 	pid_t pid;
 
@@ -57,24 +42,8 @@ static void		init_philo(int i, t_philo *philo, t_table *table)
 	philo->id = i;
 	philo->table = table;
 	philo->eat_num = table->eat_num;
-	philo->finish_eat = sem_open(id_c,  O_CREAT, 0660, 0);
+	philo->finish_eat = sem_open(id_c, O_CREAT, 0660, 0);
 	free(id_c);
-}
-
-static void *check_eat(void *val)
-{
-	t_philo *philo;
-	int i;
-
-	philo = (t_philo*)val;
-	i = 0;
-	while(i < philo->table->phl_num)
-	{
-		sem_wait(philo[i].finish_eat);
-		i++;
-	}
-	sem_post(philo->table->finish);
-	return (NULL);
 }
 
 static void		start_processes(t_table *table)
@@ -102,7 +71,7 @@ static void		init_semaphores_and_start_processes(t_table *table)
 	sem_t					*death_sem;
 	sem_t					*waiter;
 	sem_t					*forks;
-	sem_t 					*finish;
+	sem_t					*finish;
 
 	sem_unlink("output_sem");
 	sem_unlink("forks");
@@ -111,8 +80,8 @@ static void		init_semaphores_and_start_processes(t_table *table)
 	sem_unlink("death_sem");
 	forks = sem_open("forks", O_CREAT, 0660, table->phl_num);
 	death_sem = sem_open("death_sem", O_CREAT, 0660, 1);
-	waiter = sem_open("waiter",  O_CREAT, 0660, 1);
-	finish = sem_open("finish",  O_CREAT, 0660, 0);
+	waiter = sem_open("waiter", O_CREAT, 0660, 1);
+	finish = sem_open("finish", O_CREAT, 0660, 0);
 	table->output_sem = sem_open("output_sem", O_CREAT, 0660, 1);
 	table->forks = forks;
 	table->steward = waiter;

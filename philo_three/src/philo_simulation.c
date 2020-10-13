@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
-# include <semaphore.h>
+
 static int		forks_handler(t_philo *philo)
 {
 	sem_wait(philo->table->steward);
@@ -82,6 +82,13 @@ static void		*check_die(void *val)
 	return (NULL);
 }
 
+static void		f_think(t_philo *philo)
+{
+	sem_wait(philo->table->output_sem);
+	msg(philo, "is thinking\n");
+	sem_post(philo->table->output_sem);
+}
+
 void			*simulation(void *val)
 {
 	t_philo		*philo;
@@ -104,9 +111,7 @@ void			*simulation(void *val)
 		my_wait(philo->table->sleep_time);
 		if (philo->died)
 			break ;
-		sem_wait(philo->table->output_sem);
-		msg(philo, "is thinking\n");
-		sem_post(philo->table->output_sem);
+		f_think(philo);
 	}
 	pthread_join(die_time_thrd, NULL);
 	return (NULL);

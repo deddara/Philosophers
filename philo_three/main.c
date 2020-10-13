@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+
 int				check_validation(int argc, char **argv)
 {
 	int i;

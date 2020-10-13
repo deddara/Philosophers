@@ -28,9 +28,9 @@ typedef struct		s_table
 	int				eat_num;
 	int				smb_died;
 	int				sim_start;
-	sem_t 			*death_sem;
-	sem_t 			*steward;
-	sem_t 			*forks;
+	sem_t			*death_sem;
+	sem_t			*steward;
+	sem_t			*forks;
 }					t_table;
 
 typedef struct		s_philo

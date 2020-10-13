@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <sys/time.h>
 # include <semaphore.h>
+# include <signal.h>
 
 typedef struct		s_table
 {
@@ -28,11 +29,11 @@ typedef struct		s_table
 	int				eat_num;
 	int				smb_died;
 	int				sim_start;
-	pid_t 			*pid;
-	sem_t 			*death_sem;
-	sem_t 			*steward;
-	sem_t 			*forks;
-	sem_t 			*finish;
+	pid_t			*pid;
+	sem_t			*death_sem;
+	sem_t			*steward;
+	sem_t			*forks;
+	sem_t			*finish;
 	sem_t			*output_sem;
 }					t_table;
 
@@ -41,8 +42,8 @@ typedef struct		s_philo
 	int				id;
 	int				last_lunch_t;
 	int				eat_num;
-	int 			died;
-	int 			sim_start;
+	int				died;
+	int				sim_start;
 	sem_t			*finish_eat;
 	t_table			*table;
 }					t_philo;
@@ -58,5 +59,7 @@ void				*simulation(void *val);
 void				msg(t_philo *philo, char *action);
 void				my_wait(int time);
 int					take_time_in_ms(void);
+void				kill_processes(t_table *table);
+void				*check_eat(void *val);
 
 #endif
