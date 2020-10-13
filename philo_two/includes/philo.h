@@ -27,7 +27,7 @@ typedef struct		s_table
 	int				sleep_time;
 	int				eat_num;
 	int				smb_died;
-	int				sim_start;
+
 	sem_t			*death_sem;
 	sem_t			*steward;
 	sem_t			*forks;
@@ -38,6 +38,7 @@ typedef struct		s_philo
 	int				id;
 	int				last_lunch_t;
 	int				eat_num;
+	int				sim_start;
 	t_table			*table;
 }					t_philo;
 

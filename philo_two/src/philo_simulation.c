@@ -23,6 +23,12 @@ static int		forks_handler(t_philo *philo)
 		return (1);
 	}
 	msg(philo, "has taken a fork\n");
+	if (philo->table->phl_num == 1)
+	{
+		while (!philo->table->smb_died)
+			usleep(10);
+		return (1);
+	}
 	sem_wait(philo->table->forks);
 	if (philo->table->smb_died)
 	{
@@ -85,7 +91,7 @@ void			*simulation(void *val)
 	pthread_t	die_time_thrd;
 
 	philo = (t_philo*)val;
-	philo->table->sim_start = take_time_in_ms();
+	philo->sim_start = take_time_in_ms();
 	philo->last_lunch_t = take_time_in_ms();
 	pthread_create(&die_time_thrd, NULL, check_die, philo);
 	while (philo->eat_num)
