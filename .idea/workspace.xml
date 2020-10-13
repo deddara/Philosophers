@@ -13,15 +13,12 @@
   <component name="ChangeListManager">
     <list default="true" id="949f2386-d3d1-433b-908d-419327310a65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/includes/philo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/src/init_and_threads.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/src/init_and_threads.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/src/philo_simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/src/philo_simulation.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_two/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/includes/philo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/init_and_threads.o" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/obj/src/init_and_threads.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/philo_simulation.o" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/obj/src/philo_simulation.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_two/philo_two" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/philo_two" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_two/src/init_and_threads.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/src/init_and_threads.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_two/src/philo_simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/src/philo_simulation.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +80,7 @@
       <workItem from="1602571205467" duration="8114000" />
       <workItem from="1602585337229" duration="4042000" />
       <workItem from="1602592480693" duration="10000" />
-      <workItem from="1602597335329" duration="1712000" />
+      <workItem from="1602597335329" duration="3617000" />
     </task>
     <servers />
   </component>

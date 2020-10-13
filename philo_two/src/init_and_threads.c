@@ -29,41 +29,60 @@ static void		start_threads(t_table *table)
 	while (i < table->phl_num)
 	{
 		init_philo(i, &philo[i], table);
-		pthread_create(&thread[i], NULL, simulation, &philo[i]);
+		if (pthread_create(&thread[i], NULL, simulation, &philo[i]) != 0)
+			return ;
 		i++;
 	}
 	i = 0;
 	while (i < table->phl_num)
 	{
-		pthread_join(thread[i], NULL);
+		if (pthread_join(thread[i], NULL) != 0)
+			return ;
 		i++;
 	}
 }
 
-static void		init_semaphores_and_start_threads(t_table *table)
+static int		open_semaphores(t_table *table)
 {
 	sem_t					*death_sem;
 	sem_t					*waiter;
 	sem_t					*forks;
-	sem_t					*output;
 
-	sem_unlink("forks");
-	sem_unlink("waiter");
-	sem_unlink("death_sem");
-	sem_unlink("output");
-	forks = sem_open("forks", O_CREAT, 0660, table->phl_num);
-	death_sem = sem_open("death_sem", O_CREAT, 0660, 1);
-	waiter = sem_open("waiter", O_CREAT, 0660, 1);
-	output = sem_open("output", O_CREAT, 0660, 1);
-	table->output = output;
+	if ((forks = sem_open("forks", O_CREAT, 0660, table->phl_num)) < 0)
+		return (1);
+	if ((death_sem = sem_open("death_sem", O_CREAT, 0660, 1)) < 0)
+		return (1);
+	if ((waiter = sem_open("waiter", O_CREAT, 0660, 1)) < 0)
+		return (1);
+	if ((table->output = sem_open("output", O_CREAT, 0660, 1)) < 0)
+		return (1);
+	if ((table->time_sem = sem_open("time_sem", O_CREAT, 0660, 1)) < 0)
+		return (1);
 	table->forks = forks;
 	table->steward = waiter;
 	table->death_sem = death_sem;
 	start_threads(table);
 	sem_close(forks);
-	sem_close(output);
+	sem_close(table->output);
 	sem_close(waiter);
+	sem_close(table->time_sem);
 	sem_close(death_sem);
+	return (0);
+}
+
+static int		init_semaphores_and_start_threads(t_table *table)
+{
+	sem_unlink("forks");
+	sem_unlink("waiter");
+	sem_unlink("death_sem");
+	sem_unlink("output");
+	sem_unlink("time_sem");
+	if (open_semaphores(table))
+	{
+		write(2, "system error\n", 13);
+		return (1);
+	}
+	return (0);
 }
 
 int				init_and_threads(t_table *table, char **argv)
@@ -86,6 +105,7 @@ int				init_and_threads(t_table *table, char **argv)
 	else
 		table->eat_num = ft_atoi(argv[5]);
 	table->smb_died = 0;
-	init_semaphores_and_start_threads(table);
+	if (init_semaphores_and_start_threads(table))
+		return (1);
 	return (0);
 }

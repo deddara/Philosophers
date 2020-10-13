@@ -53,7 +53,9 @@ static void		take_forks(t_philo *philo)
 	}
 	msg(philo, "is eating\n");
 	philo->eat_num--;
+	sem_wait(philo->table->time_sem);
 	philo->last_lunch_t = take_time_in_ms();
+	sem_post(philo->table->time_sem);
 	my_wait(philo->table->eat_time);
 	sem_post(philo->table->forks);
 	sem_post(philo->table->forks);
@@ -62,15 +64,16 @@ static void		take_forks(t_philo *philo)
 static void		*check_die(void *val)
 {
 	t_philo	*philo;
-	int		time;
 
 	philo = (t_philo*)val;
-	time = take_time_in_ms();
-	while (time - philo->last_lunch_t <= philo->table->die_time)
+	sem_wait(philo->table->time_sem);
+	while (take_time_in_ms() - philo->last_lunch_t <= philo->table->die_time)
 	{
-		time = take_time_in_ms();
+		sem_post(philo->table->time_sem);
 		usleep(10);
+		sem_wait(philo->table->time_sem);
 	}
+	sem_post(philo->table->time_sem);
 	if (!philo->eat_num)
 		return (NULL);
 	sem_wait(philo->table->death_sem);
