@@ -44,7 +44,7 @@ void		msg(t_philo *philo, char *action)
 	char	*id;
 	int		new_time;
 
-	new_time = take_time_in_ms() - philo->table->sim_start;
+	new_time = take_time_in_ms() - philo->sim_start;
 	time = ft_itoa(new_time);
 	id = ft_itoa(philo->id + 1);
 	str = ft_strjoin_philo(time, id, action);

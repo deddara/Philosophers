@@ -99,7 +99,7 @@ void			*simulation(void *val)
 	pthread_t	die_time_thrd;
 
 	philo = (t_philo*)val;
-	philo->table->sim_start = take_time_in_ms();
+	philo->sim_start = take_time_in_ms();
 	philo->last_lunch_t = take_time_in_ms();
 	pthread_create(&die_time_thrd, NULL, check_die, philo);
 	while (philo->eat_num)

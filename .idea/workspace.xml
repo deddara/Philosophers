@@ -12,41 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949f2386-d3d1-433b-908d-419327310a65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/philo_three/src/process_utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Philosophers.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Philosophers.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/philo_three/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/philo_three/includes/philo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_three/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/obj/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/obj/src/atoi.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/obj/src/init_and_processes.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/obj/src/itoa.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/obj/src/philo_simulation.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/obj/src/philo_utils.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/obj/src/utils.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/philo_three" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/src/init_and_processes.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_three/src/init_and_processes.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_three/src/philo_simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_three/src/philo_simulation.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/includes/philo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/philo_simulation.o" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/obj/src/philo_simulation.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/philo_utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/obj/src/philo_utils.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/philo_one" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/philo_one" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/src/philo_simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/src/philo_simulation.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/src/philo_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/src/philo_utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/philo_two/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/includes/philo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/obj/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/atoi.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/init_and_threads.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/itoa.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/philo_simulation.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/philo_utils.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/utils.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/philo_two" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/src/init_and_threads.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/src/init_and_threads.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/src/philo_simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/src/philo_simulation.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +83,7 @@
       <workItem from="1602523037728" duration="321000" />
       <workItem from="1602523362971" duration="144000" />
       <workItem from="1602523678868" duration="3044000" />
-      <workItem from="1602571205467" duration="7122000" />
+      <workItem from="1602571205467" duration="8114000" />
     </task>
     <servers />
   </component>

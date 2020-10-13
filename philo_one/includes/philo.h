@@ -26,13 +26,13 @@ typedef struct		s_table
 	int				sleep_time;
 	int				eat_num;
 	int				smb_died;
-	int				sim_start;
 	pthread_mutex_t	death_mutex;
 	pthread_mutex_t	*forks;
 }					t_table;
 
 typedef struct		s_philo
 {
+	int				sim_start;
 	int				id;
 	int				last_lunch_t;
 	int				eat_num;

@@ -27,7 +27,6 @@ typedef struct		s_table
 	int				sleep_time;
 	int				eat_num;
 	int				smb_died;
-
 	sem_t			*death_sem;
 	sem_t			*steward;
 	sem_t			*forks;
