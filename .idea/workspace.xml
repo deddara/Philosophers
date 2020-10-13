@@ -12,30 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="949f2386-d3d1-433b-908d-419327310a65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Philosophers.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Philosophers.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Philosophers.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/atoi.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/init_and_threads.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/itoa.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/philo_simulation.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/philo_utils.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/obj/src/utils.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_one/philo_one" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/includes/philo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_one/src/init_and_threads.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_one/src/init_and_threads.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_three/src/init_and_processes.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_three/src/init_and_processes.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/philo_two/src/init_and_threads.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/src/init_and_threads.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/src/philo_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/src/philo_utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +79,7 @@
       <workItem from="1602523362971" duration="144000" />
       <workItem from="1602523678868" duration="3044000" />
       <workItem from="1602571205467" duration="8114000" />
-      <workItem from="1602585337229" duration="2669000" />
+      <workItem from="1602585337229" duration="3053000" />
     </task>
     <servers />
   </component>

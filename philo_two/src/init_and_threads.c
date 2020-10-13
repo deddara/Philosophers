@@ -73,6 +73,11 @@ int				init_and_threads(t_table *table, char **argv)
 		ft_putstr_fd("there are no philosophers\n", 2);
 		return (1);
 	}
+	if (table->phl_num > 200)
+	{
+		ft_putstr_fd("too much philosophers\n", 2);
+		return (1);
+	}
 	table->die_time = ft_atoi(argv[2]);
 	table->eat_time = ft_atoi(argv[3]);
 	table->sleep_time = ft_atoi(argv[4]);
