@@ -41,7 +41,7 @@ int				main(int argc, char **argv)
 
 	if (check_validation(argc, argv))
 		return (1);
-	if (init_and_threads(&table, argv))
+	if (init_and_processes(&table, argv))
 		return (1);
 	return (0);
 }

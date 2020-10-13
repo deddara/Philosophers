@@ -28,9 +28,11 @@ typedef struct		s_table
 	int				eat_num;
 	int				smb_died;
 	int				sim_start;
+	pid_t 			*pid;
 	sem_t 			*death_sem;
 	sem_t 			*steward;
 	sem_t 			*forks;
+	sem_t 			*finish;
 }					t_table;
 
 typedef struct		s_philo
@@ -38,6 +40,9 @@ typedef struct		s_philo
 	int				id;
 	int				last_lunch_t;
 	int				eat_num;
+	int 			died;
+	int 			sim_start;
+	sem_t			*finish_eat;
 	t_table			*table;
 }					t_philo;
 
@@ -47,7 +52,7 @@ int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 char				*ft_strjoin_philo(char *time, char *id, char *action);
 int					ft_strlen(char *str);
-int					init_and_threads(t_table *table, char **argv);
+int					init_and_processes(t_table *table, char **argv);
 void				*simulation(void *val);
 void				msg(t_philo *philo, char *action);
 void				my_wait(int time);

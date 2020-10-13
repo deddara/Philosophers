@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philo_two
+NAME = philo_three
 OBJ_DIR = obj/
 HDR_DIR = ./includes/
 
@@ -19,7 +19,7 @@ COMPILE_FLGS = gcc -I$(HDR_DIR) -Wall -Wextra -pthread
 .PHONY: all clean fclean re
 
 SRC_DIR = src/
-SRC = $(addprefix $(SRC_DIR), utils atoi itoa init_and_threads philo_utils philo_simulation)
+SRC = $(addprefix $(SRC_DIR), utils atoi itoa init_and_processes philo_utils philo_simulation)
 SRC.O = $(addprefix $(OBJ_DIR), $(SRC:=.o))
 
 MAIN_SRC = main
