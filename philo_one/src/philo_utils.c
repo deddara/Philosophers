@@ -44,6 +44,12 @@ void		msg(t_philo *philo, char *action)
 	char	*id;
 	int		new_time;
 
+	pthread_mutex_lock(&philo->table->output_mutex);
+	if (philo->table->smb_died)
+	{
+		pthread_mutex_unlock(&philo->table->output_mutex);
+		return ;
+	}
 	new_time = take_time_in_ms() - philo->sim_start;
 	time = ft_itoa(new_time);
 	id = ft_itoa(philo->id + 1);
@@ -52,4 +58,5 @@ void		msg(t_philo *philo, char *action)
 	free(id);
 	free(time);
 	free(str);
+	pthread_mutex_unlock(&philo->table->output_mutex);
 }

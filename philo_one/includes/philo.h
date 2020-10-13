@@ -27,6 +27,7 @@ typedef struct		s_table
 	int				eat_num;
 	int				smb_died;
 	pthread_mutex_t	death_mutex;
+	pthread_mutex_t	output_mutex;
 	pthread_mutex_t	*forks;
 }					t_table;
 

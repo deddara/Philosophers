@@ -51,6 +51,7 @@ static void		init_mutex_and_start_threads(t_table *table)
 	int						i;
 	pthread_mutex_t			forks[table->phl_num];
 	static pthread_mutex_t	death_mutex = PTHREAD_MUTEX_INITIALIZER;
+	static pthread_mutex_t	output_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 	i = 0;
 	while (i < table->phl_num)
@@ -59,9 +60,11 @@ static void		init_mutex_and_start_threads(t_table *table)
 		i++;
 	}
 	table->forks = forks;
+	table->output_mutex = output_mutex;
 	table->death_mutex = death_mutex;
 	start_threads(table, forks);
 	pthread_mutex_destroy(&death_mutex);
+	pthread_mutex_destroy(&output_mutex);
 }
 
 int				init_and_threads(t_table *table, char **argv)
