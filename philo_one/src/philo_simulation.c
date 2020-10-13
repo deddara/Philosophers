@@ -21,6 +21,12 @@ static int		forks_handler(t_philo *philo, int first_fork, int second_fork)
 		return (1);
 	}
 	msg(philo, "has taken a fork\n");
+	if (philo->table->phl_num == 1)
+	{
+		while (!philo->table->smb_died)
+			usleep(10);
+		return (1);
+	}
 	pthread_mutex_lock(&philo->table->forks[second_fork]);
 	if (philo->table->smb_died)
 	{
