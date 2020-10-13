@@ -22,7 +22,9 @@ static int		forks_handler(t_philo *philo)
 		sem_post(philo->table->forks);
 		return (1);
 	}
+	sem_wait(philo->table->output_sem);
 	msg(philo, "has taken a fork\n");
+	sem_post(philo->table->output_sem);
 	sem_wait(philo->table->forks);
 	if (philo->died)
 	{
@@ -30,7 +32,9 @@ static int		forks_handler(t_philo *philo)
 		sem_post(philo->table->forks);
 		return (1);
 	}
+	sem_wait(philo->table->output_sem);
 	msg(philo, "has taken a fork\n");
+	sem_post(philo->table->output_sem);
 	sem_post(philo->table->steward);
 	return (0);
 }
@@ -71,6 +75,7 @@ static void		*check_die(void *val)
 		return (NULL);
 	}
 	sem_wait(philo->table->death_sem);
+	sem_wait(philo->table->output_sem);
 	msg(philo, "is died\n");
 	philo->died = 1;
 	sem_post(philo->table->finish);
@@ -93,11 +98,15 @@ void			*simulation(void *val)
 		take_forks(philo);
 		if (philo->died)
 			break ;
+		sem_wait(philo->table->output_sem);
 		msg(philo, "is sleeping\n");
+		sem_post(philo->table->output_sem);
 		my_wait(philo->table->sleep_time);
 		if (philo->died)
 			break ;
+		sem_wait(philo->table->output_sem);
 		msg(philo, "is thinking\n");
+		sem_post(philo->table->output_sem);
 	}
 	pthread_join(die_time_thrd, NULL);
 	return (NULL);

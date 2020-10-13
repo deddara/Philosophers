@@ -104,6 +104,7 @@ static void		init_semaphores_and_start_processes(t_table *table)
 	sem_t					*forks;
 	sem_t 					*finish;
 
+	sem_unlink("output_sem");
 	sem_unlink("forks");
 	sem_unlink("finish");
 	sem_unlink("waiter");
@@ -112,6 +113,7 @@ static void		init_semaphores_and_start_processes(t_table *table)
 	death_sem = sem_open("death_sem", O_CREAT, 0660, 1);
 	waiter = sem_open("waiter",  O_CREAT, 0660, 1);
 	finish = sem_open("finish",  O_CREAT, 0660, 0);
+	table->output_sem = sem_open("output_sem", O_CREAT, 0660, 1);
 	table->forks = forks;
 	table->steward = waiter;
 	table->death_sem = death_sem;
@@ -121,6 +123,7 @@ static void		init_semaphores_and_start_processes(t_table *table)
 	sem_close(finish);
 	sem_close(waiter);
 	sem_close(death_sem);
+	sem_close(table->output_sem);
 }
 
 int				init_and_processes(t_table *table, char **argv)

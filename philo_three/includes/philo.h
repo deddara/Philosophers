@@ -33,6 +33,7 @@ typedef struct		s_table
 	sem_t 			*steward;
 	sem_t 			*forks;
 	sem_t 			*finish;
+	sem_t			*output_sem;
 }					t_table;
 
 typedef struct		s_philo
