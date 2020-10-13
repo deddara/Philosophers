@@ -106,6 +106,9 @@
 		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/philo_utils.c">
 			<Option target="Philosophers"/>
 		</Unit>
+		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/process_utils.c">
+			<Option target="Philosophers"/>
+		</Unit>
 		<Unit filename="/Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/utils.c">
 			<Option target="Philosophers"/>
 		</Unit>

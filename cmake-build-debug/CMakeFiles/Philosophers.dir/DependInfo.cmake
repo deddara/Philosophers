@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/itoa.c" "/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_three/src/itoa.c.o"
   "/Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/philo_simulation.c" "/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_three/src/philo_simulation.c.o"
   "/Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/philo_utils.c" "/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_three/src/philo_utils.c.o"
+  "/Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/process_utils.c" "/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.o"
   "/Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/utils.c" "/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles/Philosophers.dir/philo_three/src/utils.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

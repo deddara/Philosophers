@@ -59,10 +59,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/6250CA30-3076-4CD5-98BD-E53C9A0A7762/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/4B5CC92D-9B90-4183-A2F7-463F7877C6F2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/6250CA30-3076-4CD5-98BD-E53C9A0A7762/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/4B5CC92D-9B90-4183-A2F7-463F7877C6F2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /Users/deddara/school21/philosophers_project/Philosophers/cma
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/6250CA30-3076-4CD5-98BD-E53C9A0A7762/d/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/4B5CC92D-9B90-4183-A2F7-463F7877C6F2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/6250CA30-3076-4CD5-98BD-E53C9A0A7762/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/4B5CC92D-9B90-4183-A2F7-463F7877C6F2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -305,6 +305,33 @@ philo_three/src/philo_utils.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Philosophers.dir/build.make CMakeFiles/Philosophers.dir/philo_three/src/philo_utils.c.s
 .PHONY : philo_three/src/philo_utils.c.s
 
+philo_three/src/process_utils.o: philo_three/src/process_utils.c.o
+
+.PHONY : philo_three/src/process_utils.o
+
+# target to build an object file
+philo_three/src/process_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Philosophers.dir/build.make CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.o
+.PHONY : philo_three/src/process_utils.c.o
+
+philo_three/src/process_utils.i: philo_three/src/process_utils.c.i
+
+.PHONY : philo_three/src/process_utils.i
+
+# target to preprocess a source file
+philo_three/src/process_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Philosophers.dir/build.make CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.i
+.PHONY : philo_three/src/process_utils.c.i
+
+philo_three/src/process_utils.s: philo_three/src/process_utils.c.s
+
+.PHONY : philo_three/src/process_utils.s
+
+# target to generate assembly for a file
+philo_three/src/process_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Philosophers.dir/build.make CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.s
+.PHONY : philo_three/src/process_utils.c.s
+
 philo_three/src/utils.o: philo_three/src/utils.c.o
 
 .PHONY : philo_three/src/utils.o
@@ -359,6 +386,9 @@ help:
 	@echo "... philo_three/src/philo_utils.o"
 	@echo "... philo_three/src/philo_utils.i"
 	@echo "... philo_three/src/philo_utils.s"
+	@echo "... philo_three/src/process_utils.o"
+	@echo "... philo_three/src/process_utils.i"
+	@echo "... philo_three/src/process_utils.s"
 	@echo "... philo_three/src/utils.o"
 	@echo "... philo_three/src/utils.i"
 	@echo "... philo_three/src/utils.s"

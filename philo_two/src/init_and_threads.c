@@ -45,18 +45,23 @@ static void		init_semaphores_and_start_threads(t_table *table)
 	sem_t					*death_sem;
 	sem_t					*waiter;
 	sem_t					*forks;
+	sem_t					*output;
 
 	sem_unlink("forks");
 	sem_unlink("waiter");
 	sem_unlink("death_sem");
+	sem_unlink("output");
 	forks = sem_open("forks", O_CREAT, 0660, table->phl_num);
 	death_sem = sem_open("death_sem", O_CREAT, 0660, 1);
 	waiter = sem_open("waiter", O_CREAT, 0660, 1);
+	output = sem_open("output", O_CREAT, 0660, 1);
+	table->output = output;
 	table->forks = forks;
 	table->steward = waiter;
 	table->death_sem = death_sem;
 	start_threads(table);
 	sem_close(forks);
+	sem_close(output);
 	sem_close(waiter);
 	sem_close(death_sem);
 }

@@ -54,10 +54,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/6250CA30-3076-4CD5-98BD-E53C9A0A7762/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/4B5CC92D-9B90-4183-A2F7-463F7877C6F2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/6250CA30-3076-4CD5-98BD-E53C9A0A7762/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /private/var/folders/zz/zyxvpxvq6csfxvn_n000cbqm0032xx/T/AppTranslocation/4B5CC92D-9B90-4183-A2F7-463F7877C6F2/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -155,9 +155,22 @@ CMakeFiles/Philosophers.dir/philo_three/src/init_and_processes.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Philosophers.dir/philo_three/src/init_and_processes.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/init_and_processes.c -o CMakeFiles/Philosophers.dir/philo_three/src/init_and_processes.c.s
 
+CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.o: CMakeFiles/Philosophers.dir/flags.make
+CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.o: ../philo_three/src/process_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.o   -c /Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/process_utils.c
+
+CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/process_utils.c > CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.i
+
+CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/deddara/school21/philosophers_project/Philosophers/philo_three/src/process_utils.c -o CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.s
+
 CMakeFiles/Philosophers.dir/philo_three/main.c.o: CMakeFiles/Philosophers.dir/flags.make
 CMakeFiles/Philosophers.dir/philo_three/main.c.o: ../philo_three/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Philosophers.dir/philo_three/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Philosophers.dir/philo_three/main.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Philosophers.dir/philo_three/main.c.o   -c /Users/deddara/school21/philosophers_project/Philosophers/philo_three/main.c
 
 CMakeFiles/Philosophers.dir/philo_three/main.c.i: cmake_force
@@ -176,6 +189,7 @@ Philosophers_OBJECTS = \
 "CMakeFiles/Philosophers.dir/philo_three/src/philo_simulation.c.o" \
 "CMakeFiles/Philosophers.dir/philo_three/src/philo_utils.c.o" \
 "CMakeFiles/Philosophers.dir/philo_three/src/init_and_processes.c.o" \
+"CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.o" \
 "CMakeFiles/Philosophers.dir/philo_three/main.c.o"
 
 # External object files for target Philosophers
@@ -187,10 +201,11 @@ Philosophers: CMakeFiles/Philosophers.dir/philo_three/src/itoa.c.o
 Philosophers: CMakeFiles/Philosophers.dir/philo_three/src/philo_simulation.c.o
 Philosophers: CMakeFiles/Philosophers.dir/philo_three/src/philo_utils.c.o
 Philosophers: CMakeFiles/Philosophers.dir/philo_three/src/init_and_processes.c.o
+Philosophers: CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.o
 Philosophers: CMakeFiles/Philosophers.dir/philo_three/main.c.o
 Philosophers: CMakeFiles/Philosophers.dir/build.make
 Philosophers: CMakeFiles/Philosophers.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable Philosophers"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/deddara/school21/philosophers_project/Philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable Philosophers"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Philosophers.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

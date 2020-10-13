@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Philosophers.dir/philo_three/src/itoa.c.o"
   "CMakeFiles/Philosophers.dir/philo_three/src/philo_simulation.c.o"
   "CMakeFiles/Philosophers.dir/philo_three/src/philo_utils.c.o"
+  "CMakeFiles/Philosophers.dir/philo_three/src/process_utils.c.o"
   "CMakeFiles/Philosophers.dir/philo_three/src/utils.c.o"
   "Philosophers"
   "Philosophers.pdb"

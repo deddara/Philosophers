@@ -44,6 +44,12 @@ void		msg(t_philo *philo, char *action)
 	char	*id;
 	int		new_time;
 
+	sem_wait(philo->table->output);
+	if (philo->table->smb_died)
+	{
+		sem_post(philo->table->output);
+		return ;
+	}
 	new_time = take_time_in_ms() - philo->sim_start;
 	time = ft_itoa(new_time);
 	id = ft_itoa(philo->id + 1);
@@ -52,4 +58,5 @@ void		msg(t_philo *philo, char *action)
 	free(id);
 	free(time);
 	free(str);
+	sem_post(philo->table->output);
 }
