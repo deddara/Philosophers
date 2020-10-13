@@ -35,6 +35,7 @@ typedef struct		s_table
 	sem_t			*forks;
 	sem_t			*finish;
 	sem_t			*output_sem;
+	sem_t			*time_sem;
 }					t_table;
 
 typedef struct		s_philo
@@ -61,5 +62,6 @@ void				my_wait(int time);
 int					take_time_in_ms(void);
 void				kill_processes(t_table *table);
 void				*check_eat(void *val);
+void				init_philo(int i, t_philo *philo, t_table *table);
 
 #endif

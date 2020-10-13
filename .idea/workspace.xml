@@ -13,12 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="949f2386-d3d1-433b-908d-419327310a65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/includes/philo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/init_and_threads.o" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/obj/src/init_and_threads.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/obj/src/philo_simulation.o" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/obj/src/philo_simulation.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/philo_two" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/philo_two" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/src/init_and_threads.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/src/init_and_threads.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/philo_two/src/philo_simulation.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_two/src/philo_simulation.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_three/includes/philo.h" beforeDir="false" afterPath="$PROJECT_DIR$/philo_three/includes/philo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_three/src/init_and_processes.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_three/src/init_and_processes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/philo_three/src/philo_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/philo_three/src/philo_utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +77,7 @@
       <workItem from="1602571205467" duration="8114000" />
       <workItem from="1602585337229" duration="4042000" />
       <workItem from="1602592480693" duration="10000" />
-      <workItem from="1602597335329" duration="3617000" />
+      <workItem from="1602597335329" duration="5042000" />
     </task>
     <servers />
   </component>

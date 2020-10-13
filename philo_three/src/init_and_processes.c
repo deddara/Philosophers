@@ -33,19 +33,6 @@ static void		philo_process(t_philo *philo, t_table *table, int i)
 	}
 }
 
-static void		init_philo(int i, t_philo *philo, t_table *table)
-{
-	char *id_c;
-
-	id_c = ft_itoa(i);
-	sem_unlink(id_c);
-	philo->id = i;
-	philo->table = table;
-	philo->eat_num = table->eat_num;
-	philo->finish_eat = sem_open(id_c, O_CREAT, 0660, 0);
-	free(id_c);
-}
-
 static void		start_processes(t_table *table)
 {
 	int			i;
@@ -61,38 +48,58 @@ static void		start_processes(t_table *table)
 		philo_process(&philo[i], table, i);
 		i++;
 	}
-	pthread_create(&eat_thread, NULL, check_eat, philo);
+	if (pthread_create(&eat_thread, NULL, check_eat, philo) != 0)
+	{
+		ft_putstr_fd("thread error", 2);
+		return ;
+	}
 	sem_wait(table->finish);
 	kill_processes(table);
 }
 
-static void		init_semaphores_and_start_processes(t_table *table)
+static int		open_semaphores(t_table *table)
 {
 	sem_t					*death_sem;
-	sem_t					*waiter;
 	sem_t					*forks;
-	sem_t					*finish;
 
+	if ((table->finish = sem_open("finish", O_CREAT, 0660, 0)) < 0)
+		return (1);
+	if ((forks = sem_open("forks", O_CREAT, 0660, table->phl_num)) < 0)
+		return (1);
+	if ((death_sem = sem_open("death_sem", O_CREAT, 0660, 1)) < 0)
+		return (1);
+	if ((table->steward = sem_open("waiter", O_CREAT, 0660, 1)) < 0)
+		return (1);
+	if ((table->output_sem = sem_open("output_sem", O_CREAT, 0660, 1)) < 0)
+		return (1);
+	if ((table->time_sem = sem_open("time_sem", O_CREAT, 0660, 1)) < 0)
+		return (1);
+	table->forks = forks;
+	table->death_sem = death_sem;
+	start_processes(table);
+	sem_close(forks);
+	sem_close(table->output_sem);
+	sem_close(table->steward);
+	sem_close(table->finish);
+	sem_close(table->time_sem);
+	sem_close(death_sem);
+	return (0);
+}
+
+static int		init_semaphores_and_start_processes(t_table *table)
+{
 	sem_unlink("output_sem");
 	sem_unlink("forks");
 	sem_unlink("finish");
 	sem_unlink("waiter");
 	sem_unlink("death_sem");
-	forks = sem_open("forks", O_CREAT, 0660, table->phl_num);
-	death_sem = sem_open("death_sem", O_CREAT, 0660, 1);
-	waiter = sem_open("waiter", O_CREAT, 0660, 1);
-	finish = sem_open("finish", O_CREAT, 0660, 0);
-	table->output_sem = sem_open("output_sem", O_CREAT, 0660, 1);
-	table->forks = forks;
-	table->steward = waiter;
-	table->death_sem = death_sem;
-	table->finish = finish;
-	start_processes(table);
-	sem_close(forks);
-	sem_close(finish);
-	sem_close(waiter);
-	sem_close(death_sem);
-	sem_close(table->output_sem);
+	sem_unlink("time_sem");
+	if (open_semaphores(table))
+	{
+		write(2, "system error\n", 13);
+		return (1);
+	}
+	return (0);
 }
 
 int				init_and_processes(t_table *table, char **argv)
@@ -115,6 +122,7 @@ int				init_and_processes(t_table *table, char **argv)
 	else
 		table->eat_num = ft_atoi(argv[5]);
 	table->smb_died = 0;
-	init_semaphores_and_start_processes(table);
+	if (init_semaphores_and_start_processes(table))
+		return (1);
 	return (0);
 }

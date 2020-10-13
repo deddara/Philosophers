@@ -12,6 +12,19 @@
 
 #include "philo.h"
 
+void		init_philo(int i, t_philo *philo, t_table *table)
+{
+	char *id_c;
+
+	id_c = ft_itoa(i);
+	sem_unlink(id_c);
+	philo->id = i;
+	philo->table = table;
+	philo->eat_num = table->eat_num;
+	philo->finish_eat = sem_open(id_c, O_CREAT, 0660, 0);
+	free(id_c);
+}
+
 int			take_time_in_ms(void)
 {
 	struct timeval start;
