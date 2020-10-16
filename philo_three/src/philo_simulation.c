@@ -6,7 +6,7 @@
 /*   By: deddara <deddara@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 18:19:41 by deddara           #+#    #+#             */
-/*   Updated: 2020/10/12 18:19:42 by deddara          ###   ########.fr       */
+/*   Updated: 2020/10/16 12:05:12 by deddara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ static void		take_forks(t_philo *philo)
 		sem_post(philo->table->forks);
 		return ;
 	}
+	sem_wait(philo->table->output_sem);
 	msg(philo, "is eating\n");
+	sem_post(philo->table->output_sem);
 	philo->eat_num--;
 	philo->last_lunch_t = take_time_in_ms();
 	my_wait(philo->table->eat_time);
